@@ -1,0 +1,90 @@
+<div class="batches-container">
+  <div class="page-header">
+    <div class="header-left">
+      <h2>Processing Monitor</h2>
+      <p class="subtitle">Monitor batch ingestion states, error counts, and processing performance.</p>
+    </div>
+    <div class="header-right">
+      <a routerLink="/data-operations/upload" class="btn btn-primary">+ Upload New CSV</a>
+    </div>
+  </div>
+
+  <!-- Filter toolbar -->
+  <div class="toolbar-card">
+    <div class="filter-group">
+      <label for="statusFilter">Filter by Status:</label>
+      <select id="statusFilter" class="form-select" (change)="onStatusFilterChange($event)">
+        <option *ngFor="let opt of statusOptions" [value]="opt.value || ''">{{ opt.label }}</option>
+      </select>
+    </div>
+    <div class="total-indicator" *ngIf="!isLoading">
+      Total Batches: <strong>{{ totalElements }}</strong>
+    </div>
+  </div>
+
+  <!-- Error banner -->
+  <div class="alert alert-error" *ngIf="errorMessage">
+    <div class="alert-icon">&#9888;</div>
+    <div class="alert-content">{{ errorMessage }}</div>
+  </div>
+
+  <!-- Loading state -->
+  <div class="loading-state" *ngIf="isLoading">
+    <div class="spinner-large"></div>
+    <p>Loading ingestion batches...</p>
+  </div>
+
+  <!-- Batch table -->
+  <div class="card" *ngIf="!isLoading">
+    <div class="table-responsive" *ngIf="batches.length > 0">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>File Name</th>
+            <th>Uploaded Date (UTC)</th>
+            <th>Status</th>
+            <th>Total Rows</th>
+            <th>Successful</th>
+            <th>Failed</th>
+            <th>Duplicates</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let b of batches">
+            <td>
+              <span class="file-name">&#128196; {{ b.fileName }}</span>
+              <span class="file-id">ID: {{ b.batchId.substring(0, 8) }}...</span>
+            </td>
+            <td>{{ b.uploadedAt | date:'medium' }}</td>
+            <td>
+              <span class="status-pill status-{{ b.status.toLowerCase() }}">{{ b.status }}</span>
+            </td>
+            <td><strong>{{ b.totalRows }}</strong></td>
+            <td class="text-success">{{ b.successfulRows }}</td>
+            <td [class.text-danger]="b.failedRows > 0">{{ b.failedRows }}</td>
+            <td [class.text-warning]="b.duplicateRows > 0">{{ b.duplicateRows }}</td>
+            <td>
+              <a [routerLink]="['/data-operations/batches', b.batchId]" class="btn btn-sm btn-outline">Details & Errors</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty-state" *ngIf="batches.length === 0">
+      <div class="empty-icon">&#128194;</div>
+      <h3>No Ingestion Batches Found</h3>
+      <p>Upload a feedback CSV to begin tracking ingestion batches.</p>
+      <a routerLink="/data-operations/upload" class="btn btn-secondary">Upload CSV File</a>
+    </div>
+
+    <!-- Pagination controls -->
+    <div class="pagination-bar" *ngIf="totalPages > 1">
+      <button class="btn btn-outline btn-sm" [disabled]="page === 0" (click)="previousPage()">&laquo; Previous</button>
+      <span class="page-indicator">Page {{ page + 1 }} of {{ totalPages }}</span>
+      <button class="btn btn-outline btn-sm" [disabled]="page + 1 >= totalPages" (click)="nextPage()">Next &raquo;</button>
+    </div>
+  </div>
+</div>

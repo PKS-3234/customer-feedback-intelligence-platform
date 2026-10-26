@@ -1,0 +1,152 @@
+<div class="upload-container">
+  <div class="page-header">
+    <h2>CSV Feedback Ingestion</h2>
+    <p class="subtitle">Upload and validate customer feedback CSV files. Validated records will be ingested and queued for AI analysis.</p>
+  </div>
+
+  <!-- Error banner -->
+  <div class="alert alert-error" *ngIf="errorMessage">
+    <div class="alert-icon">&#9888;</div>
+    <div class="alert-content">
+      <strong>Error:</strong> {{ errorMessage }}
+    </div>
+  </div>
+
+  <!-- Ingestion success banner -->
+  <div class="alert alert-success" *ngIf="uploadResult">
+    <div class="alert-icon">&#10003;</div>
+    <div class="alert-content">
+      <h4>Batch Ingested Successfully!</h4>
+      <p>Batch ID: <code>{{ uploadResult.batchId }}</code> | Status: <span class="status-pill status-{{ uploadResult.status.toLowerCase() }}">{{ uploadResult.status }}</span></p>
+      <div class="summary-stats">
+        <span>Total: <strong>{{ uploadResult.totalRows }}</strong></span>
+        <span>Successful: <strong class="text-success">{{ uploadResult.successfulRows }}</strong></span>
+        <span>Failed: <strong class="text-danger">{{ uploadResult.failedRows }}</strong></span>
+        <span>Duplicates: <strong class="text-warning">{{ uploadResult.duplicateRows }}</strong></span>
+      </div>
+      <div class="action-row">
+        <a [routerLink]="['/data-operations/batches', uploadResult.batchId]" class="btn btn-secondary">View Batch Details & Errors</a>
+        <button class="btn btn-primary" (click)="reset()">Upload Another File</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload workflow card (hidden once uploaded successfully) -->
+  <div class="card" *ngIf="!uploadResult">
+    <!-- Drag & Drop Zone -->
+    <div
+      class="dropzone"
+      [class.active]="isDragging"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+      *ngIf="!selectedFile">
+      <div class="dropzone-icon">&#128196;</div>
+      <p class="dropzone-title">Drag & drop your feedback CSV file here</p>
+      <p class="dropzone-hint">Supported format: .csv (UTF-8) | Max size: 10 MB</p>
+      <label class="btn btn-secondary file-label">
+        Browse Files
+        <input type="file" accept=".csv" (change)="onFileSelected($event)" hidden>
+      </label>
+    </div>
+
+    <!-- Selected File Header -->
+    <div class="file-info-bar" *ngIf="selectedFile">
+      <div class="file-details">
+        <span class="file-name">&#128196; {{ selectedFile.name }}</span>
+        <span class="file-size">({{ fileSizeFormatted }})</span>
+      </div>
+      <div class="file-actions">
+        <button class="btn btn-outline" (click)="reset()" [disabled]="isValidating || isUploading">Remove</button>
+        <button class="btn btn-secondary" (click)="validateFile()" [disabled]="isValidating || isUploading">
+          <span *ngIf="isValidating" class="spinner"></span>
+          {{ isValidating ? 'Validating...' : 'Preview & Validate' }}
+        </button>
+        <button class="btn btn-primary" (click)="uploadFile()" [disabled]="!canUpload">
+          <span *ngIf="isUploading" class="spinner"></span>
+          {{ isUploading ? 'Importing Batch...' : 'Import Feedback' }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Validation Result Details -->
+    <div class="validation-section" *ngIf="validationResult">
+      <div class="section-divider"></div>
+
+      <!-- Summary metrics -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-label">Total Detected</span>
+          <span class="metric-value">{{ validationResult.totalRowsDetected }}</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Valid Rows</span>
+          <span class="metric-value text-success">{{ validationResult.validRowCount }}</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Invalid Rows</span>
+          <span class="metric-value" [class.text-danger]="validationResult.invalidRowCount > 0">{{ validationResult.invalidRowCount }}</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Duplicate Rows</span>
+          <span class="metric-value" [class.text-warning]="validationResult.duplicateWithinFileCount > 0">{{ validationResult.duplicateWithinFileCount }}</span>
+        </div>
+      </div>
+
+      <!-- Column Mapping Information -->
+      <div class="mapping-card">
+        <h4>Canonical Header Mapping</h4>
+        <div class="tags-container">
+          <span class="tag tag-success" *ngFor="let h of validationResult.requiredHeadersFound">&#10003; {{ h }}</span>
+          <span class="tag tag-danger" *ngFor="let h of validationResult.missingHeaders">&#10007; Missing: {{ h }}</span>
+        </div>
+      </div>
+
+      <!-- Validation Errors Table if any -->
+      <div class="errors-box" *ngIf="validationResult.validationErrors.length > 0">
+        <h4>Validation Issues Found ({{ validationResult.validationErrors.length }})</h4>
+        <p class="errors-hint">Rows with errors will be logged to processing_errors during ingestion without aborting valid rows.</p>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Row #</th>
+                <th>Field</th>
+                <th>Error Code</th>
+                <th>Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let err of validationResult.validationErrors.slice(0, 15)">
+                <td>{{ err.rowNumber }}</td>
+                <td><code>{{ err.field }}</code></td>
+                <td><span class="badge-code">{{ err.errorCode }}</span></td>
+                <td>{{ err.message }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="table-truncated-note" *ngIf="validationResult.validationErrors.length > 15">Showing first 15 errors. Remaining recorded upon upload.</p>
+        </div>
+      </div>
+
+      <!-- Row Preview Table -->
+      <div class="preview-box" *ngIf="validationResult.previewRows.length > 0">
+        <h4>Data Preview (First {{ validationResult.previewRows.length }} rows)</h4>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th *ngFor="let col of validationResult.detectedHeaders">{{ col }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of validationResult.previewRows">
+                <td *ngFor="let col of validationResult.detectedHeaders">{{ row[col] || '-' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

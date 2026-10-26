@@ -1,0 +1,144 @@
+<div class="detail-container">
+  <div class="navigation-back">
+    <a routerLink="/data-operations/batches" class="back-link">&larr; Back to Processing Monitor</a>
+  </div>
+
+  <!-- Error banner -->
+  <div class="alert alert-error" *ngIf="errorMessage">
+    <div class="alert-icon">&#9888;</div>
+    <div class="alert-content">{{ errorMessage }}</div>
+  </div>
+
+  <!-- Loading state -->
+  <div class="loading-state" *ngIf="isLoadingBatch">
+    <div class="spinner-large"></div>
+    <p>Loading batch details...</p>
+  </div>
+
+  <div *ngIf="!isLoadingBatch && batch">
+    <!-- Header Card -->
+    <div class="card header-card">
+      <div class="batch-title-row">
+        <div>
+          <h2>{{ batch.fileName }}</h2>
+          <p class="batch-id">Batch ID: <code>{{ batch.batchId }}</code></p>
+        </div>
+        <div>
+          <span class="status-pill status-{{ batch.status.toLowerCase() }}">{{ batch.status }}</span>
+        </div>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Uploaded At:</span>
+          <span class="meta-value">{{ batch.uploadedAt | date:'medium' }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Source Type:</span>
+          <span class="meta-value">{{ batch.sourceType }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Uploaded By:</span>
+          <span class="meta-value">{{ batch.uploadedBy || 'system' }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">File SHA-256:</span>
+          <span class="meta-value hash-code">{{ batch.fileHash }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Metrics Grid -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <span class="metric-label">Total Rows</span>
+        <span class="metric-value">{{ batch.totalRows }}</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Valid Rows</span>
+        <span class="metric-value text-success">{{ batch.validRows }}</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Stored / Queued</span>
+        <span class="metric-value text-success">{{ batch.successfulRows }}</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Validation Failures</span>
+        <span class="metric-value" [class.text-danger]="batch.failedRows > 0">{{ batch.failedRows }}</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Duplicates</span>
+        <span class="metric-value" [class.text-warning]="batch.duplicateRows > 0">{{ batch.duplicateRows }}</span>
+      </div>
+    </div>
+
+    <!-- Errors Explorer Section -->
+    <div class="card errors-card">
+      <div class="errors-header">
+        <div>
+          <h3>Recorded Processing Errors</h3>
+          <p class="section-hint">Validation failures and duplicate detections recorded during ingestion.</p>
+        </div>
+        <div class="filter-group">
+          <label for="stageFilter">Stage Filter:</label>
+          <select id="stageFilter" class="form-select" (change)="onStageFilterChange($event)">
+            <option *ngFor="let opt of stageOptions" [value]="opt.value || ''">{{ opt.label }}</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Errors Loading -->
+      <div class="loading-state" *ngIf="isLoadingErrors">
+        <div class="spinner-small"></div>
+        <p>Loading errors...</p>
+      </div>
+
+      <!-- Errors Table -->
+      <div class="table-responsive" *ngIf="!isLoadingErrors && errors.length > 0">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Row #</th>
+              <th>Processing Stage</th>
+              <th>Error Code</th>
+              <th>Message</th>
+              <th>Payload</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let err of errors">
+              <tr>
+                <td>{{ err.csvRowNumber ? err.csvRowNumber : '-' }}</td>
+                <td><span class="stage-tag">{{ err.processingStage }}</span></td>
+                <td><code>{{ err.errorCode }}</code></td>
+                <td>{{ err.errorMessage }}</td>
+                <td>
+                  <button class="btn btn-outline btn-xs" *ngIf="err.originalRow" (click)="toggleExpandRow(err.errorId)">
+                    {{ expandedErrorRow === err.errorId ? 'Hide' : 'View Row' }}
+                  </button>
+                </td>
+              </tr>
+              <tr *ngIf="expandedErrorRow === err.errorId" class="raw-row-detail">
+                <td colspan="5">
+                  <pre class="json-payload">{{ err.originalRow }}</pre>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- No Errors state -->
+      <div class="empty-errors" *ngIf="!isLoadingErrors && errors.length === 0">
+        <p>&#10003; No processing errors recorded for this batch filter.</p>
+      </div>
+
+      <!-- Pagination bar -->
+      <div class="pagination-bar" *ngIf="totalPages > 1">
+        <button class="btn btn-outline btn-sm" [disabled]="page === 0" (click)="previousPage()">&laquo; Previous</button>
+        <span class="page-indicator">Page {{ page + 1 }} of {{ totalPages }} (Total: {{ totalErrors }})</span>
+        <button class="btn btn-outline btn-sm" [disabled]="page + 1 >= totalPages" (click)="nextPage()">Next &raquo;</button>
+      </div>
+    </div>
+  </div>
+</div>
