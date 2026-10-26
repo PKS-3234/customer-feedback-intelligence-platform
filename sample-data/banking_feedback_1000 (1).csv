@@ -1,0 +1,1001 @@
+feedback_id,feedback_date,channel,product,rating,customer_segment,region,feedback_text
+F0001,2026-05-21,web,Savings Account,2,Retail,North,The app crashes when I open transaction history.
+F0002,2026-02-14,support_ticket,Mobile Banking,2,Retail,North,Notifications are not arriving.
+F0003,2026-01-14,web,Loans,1,Retail,West,Refund has not been credited yet.
+F0004,2026-03-23,support_ticket,Credit Cards,2,Premium,South,The app crashes when I open transaction history.
+F0005,2026-02-22,mobile_app,Loans,1,Retail,East,UPI payment failed but money was deducted.
+F0006,2026-05-16,mobile_app,Loans,4,Premium,North,Great banking experience overall.
+F0007,2026-07-05,web,Mobile Banking,2,Retail,South,Transfer failed without any reason.
+F0008,2026-04-30,mobile_app,Loans,3,Premium,West,Customer support takes too long to respond.
+F0009,2026-03-25,survey,Credit Cards,2,Retail,East,Application is extremely slow during peak hours.
+F0010,2026-02-06,web,Savings Account,2,Retail,West,Notifications are not arriving.
+F0011,2026-10-13,web,Credit Cards,1,Retail,South,Refund has not been credited yet.
+F0012,2026-07-25,survey,Mobile Banking,4,Business,East,Fund transfers are fast and seamless.
+F0013,2026-07-22,support_ticket,Savings Account,1,Premium,South,UPI payment failed but money was deducted.
+F0014,2026-10-03,survey,Loans,1,Business,West,Refund has not been credited yet.
+F0015,2026-09-18,support_ticket,Mobile Banking,1,Retail,North,Payment was debited twice for a single transaction.
+F0016,2026-08-05,mobile_app,Loans,1,Premium,West,OTP verification fails every time I try to log in.
+F0017,2026-01-06,mobile_app,Credit Cards,2,Business,East,Transfer failed without any reason.
+F0018,2026-03-22,support_ticket,Mobile Banking,1,Business,East,Biometric login stopped working after the update.
+F0019,2026-09-17,mobile_app,Credit Cards,4,Retail,East,The app is easy to use and very reliable.
+F0020,2026-06-15,support_ticket,Mobile Banking,3,Retail,East,Customer support takes too long to respond.
+F0021,2026-05-03,mobile_app,Savings Account,4,Retail,West,Fund transfers are fast and seamless.
+F0022,2026-03-06,web,Loans,4,Premium,West,Great banking experience overall.
+F0023,2026-04-13,survey,Loans,5,Premium,West,Great banking experience overall.
+F0024,2026-02-02,survey,Mobile Banking,1,Business,South,OTP verification fails every time I try to log in.
+F0025,2026-02-06,mobile_app,Savings Account,2,Retail,North,The app crashes when I open transaction history.
+F0026,2026-09-21,web,Credit Cards,5,Retail,South,The app is easy to use and very reliable.
+F0027,2026-05-05,support_ticket,Loans,3,Retail,North,Support ticket has been open for days.
+F0028,2026-07-01,support_ticket,Loans,1,Premium,North,Biometric login stopped working after the update.
+F0029,2026-02-20,mobile_app,Loans,2,Business,East,Notifications are not arriving.
+F0030,2026-05-08,web,Savings Account,5,Retail,West,The app is easy to use and very reliable.
+F0031,2026-05-08,mobile_app,Loans,1,Business,North,Biometric login stopped working after the update.
+F0032,2026-01-08,mobile_app,Savings Account,1,Retail,West,Account gets locked even with correct password.
+F0033,2026-07-25,mobile_app,Savings Account,2,Premium,North,Fund transfer remains pending for hours.
+F0034,2026-08-21,survey,Loans,5,Retail,South,Fund transfers are fast and seamless.
+F0035,2026-10-24,mobile_app,Credit Cards,1,Retail,North,Payment was debited twice for a single transaction.
+F0036,2026-09-29,web,Mobile Banking,2,Business,North,Notifications are not arriving.
+F0037,2026-02-04,web,Loans,4,Business,South,The app is easy to use and very reliable.
+F0038,2026-02-11,support_ticket,Credit Cards,2,Premium,South,The app crashes when I open transaction history.
+F0039,2026-05-03,survey,Loans,2,Retail,East,Application is extremely slow during peak hours.
+F0040,2026-01-05,support_ticket,Mobile Banking,2,Retail,South,Fund transfer remains pending for hours.
+F0041,2026-06-28,mobile_app,Savings Account,2,Premium,East,Fund transfer remains pending for hours.
+F0042,2026-06-04,mobile_app,Credit Cards,1,Business,North,Account gets locked even with correct password.
+F0043,2026-05-16,mobile_app,Mobile Banking,4,Premium,East,The app is easy to use and very reliable.
+F0044,2026-06-25,web,Credit Cards,2,Business,West,Notifications are not arriving.
+F0045,2026-02-17,support_ticket,Credit Cards,1,Retail,North,Payment was debited twice for a single transaction.
+F0046,2026-05-15,web,Loans,1,Business,West,Payment was debited twice for a single transaction.
+F0047,2026-02-08,web,Mobile Banking,2,Premium,South,The app crashes when I open transaction history.
+F0048,2026-06-07,survey,Mobile Banking,2,Premium,South,Fund transfer remains pending for hours.
+F0049,2026-02-22,survey,Loans,2,Business,South,Notifications are not arriving.
+F0050,2026-03-25,web,Loans,4,Retail,East,The app is easy to use and very reliable.
+F0051,2026-05-08,survey,Savings Account,3,Business,North,Support ticket has been open for days.
+F0052,2026-08-29,web,Savings Account,2,Premium,East,Fund transfer remains pending for hours.
+F0053,2026-04-25,mobile_app,Savings Account,1,Premium,East,Payment was debited twice for a single transaction.
+F0054,2026-05-23,survey,Loans,1,Business,East,Payment was debited twice for a single transaction.
+F0055,2026-05-14,web,Credit Cards,4,Retail,West,The app is easy to use and very reliable.
+F0056,2026-08-12,mobile_app,Loans,1,Business,South,UPI payment failed but money was deducted.
+F0057,2026-08-12,mobile_app,Savings Account,1,Premium,West,Refund has not been credited yet.
+F0058,2026-06-19,survey,Mobile Banking,1,Business,East,Account gets locked even with correct password.
+F0059,2026-07-29,survey,Loans,2,Business,East,Transfer failed without any reason.
+F0060,2026-08-04,support_ticket,Savings Account,2,Business,East,Fund transfer remains pending for hours.
+F0061,2026-06-05,survey,Savings Account,2,Premium,East,Fund transfer remains pending for hours.
+F0062,2026-04-20,support_ticket,Savings Account,2,Business,North,Unable to add beneficiary for transfer.
+F0063,2026-06-21,mobile_app,Savings Account,1,Business,East,Refund has not been credited yet.
+F0064,2026-03-17,mobile_app,Mobile Banking,1,Retail,West,Payment was debited twice for a single transaction.
+F0065,2026-08-22,support_ticket,Savings Account,2,Business,West,The app crashes when I open transaction history.
+F0066,2026-03-17,mobile_app,Mobile Banking,2,Premium,South,Fund transfer remains pending for hours.
+F0067,2026-09-23,support_ticket,Mobile Banking,1,Business,South,Account gets locked even with correct password.
+F0068,2026-08-22,web,Loans,5,Premium,West,The app is easy to use and very reliable.
+F0069,2026-08-17,web,Loans,5,Premium,South,Great banking experience overall.
+F0070,2026-09-24,support_ticket,Savings Account,5,Premium,North,Fund transfers are fast and seamless.
+F0071,2026-05-20,survey,Credit Cards,2,Business,North,The app crashes when I open transaction history.
+F0072,2026-07-16,web,Savings Account,1,Retail,West,OTP verification fails every time I try to log in.
+F0073,2026-08-27,support_ticket,Mobile Banking,2,Retail,West,Transfer failed without any reason.
+F0074,2026-01-11,support_ticket,Loans,2,Retail,East,Transfer failed without any reason.
+F0075,2026-08-03,web,Loans,1,Retail,East,UPI payment failed but money was deducted.
+F0076,2026-07-19,survey,Loans,2,Business,South,Fund transfer remains pending for hours.
+F0077,2026-10-01,mobile_app,Loans,4,Retail,West,The app is easy to use and very reliable.
+F0078,2026-04-04,mobile_app,Credit Cards,1,Premium,East,Biometric login stopped working after the update.
+F0079,2026-06-22,support_ticket,Credit Cards,1,Premium,East,UPI payment failed but money was deducted.
+F0080,2026-01-10,mobile_app,Credit Cards,4,Business,North,Fund transfers are fast and seamless.
+F0081,2026-01-16,web,Savings Account,3,Retail,South,Customer support takes too long to respond.
+F0082,2026-02-28,web,Loans,1,Business,East,UPI payment failed but money was deducted.
+F0083,2026-02-28,web,Credit Cards,3,Retail,North,Customer support takes too long to respond.
+F0084,2026-07-12,support_ticket,Savings Account,4,Business,South,Great banking experience overall.
+F0085,2026-03-03,mobile_app,Credit Cards,1,Business,West,Biometric login stopped working after the update.
+F0086,2026-09-17,survey,Mobile Banking,2,Premium,West,The app crashes when I open transaction history.
+F0087,2026-08-24,web,Loans,1,Retail,East,Biometric login stopped working after the update.
+F0088,2026-09-05,support_ticket,Loans,2,Business,East,Notifications are not arriving.
+F0089,2026-02-14,survey,Loans,1,Retail,West,Payment was debited twice for a single transaction.
+F0090,2026-07-14,survey,Mobile Banking,2,Premium,East,Notifications are not arriving.
+F0091,2026-07-01,survey,Credit Cards,1,Premium,East,OTP verification fails every time I try to log in.
+F0092,2026-04-08,mobile_app,Savings Account,2,Business,West,Transfer failed without any reason.
+F0093,2026-09-01,support_ticket,Loans,2,Retail,North,Fund transfer remains pending for hours.
+F0094,2026-05-05,survey,Credit Cards,1,Premium,East,UPI payment failed but money was deducted.
+F0095,2026-10-09,survey,Credit Cards,2,Business,West,Transfer failed without any reason.
+F0096,2026-04-29,mobile_app,Savings Account,1,Premium,North,UPI payment failed but money was deducted.
+F0097,2026-04-09,web,Loans,3,Premium,East,Customer support takes too long to respond.
+F0098,2026-06-01,web,Credit Cards,4,Premium,North,The app is easy to use and very reliable.
+F0099,2026-05-21,mobile_app,Mobile Banking,2,Business,East,The app crashes when I open transaction history.
+F0100,2026-09-09,mobile_app,Mobile Banking,2,Business,East,The app crashes when I open transaction history.
+F0101,2026-06-24,web,Mobile Banking,2,Premium,West,Unable to add beneficiary for transfer.
+F0102,2026-07-25,support_ticket,Mobile Banking,1,Business,North,OTP verification fails every time I try to log in.
+F0103,2026-06-05,mobile_app,Savings Account,1,Retail,West,Account gets locked even with correct password.
+F0104,2026-04-26,support_ticket,Loans,2,Premium,East,Notifications are not arriving.
+F0105,2026-06-06,mobile_app,Mobile Banking,4,Business,South,Fund transfers are fast and seamless.
+F0106,2026-03-22,web,Savings Account,1,Business,North,Payment was debited twice for a single transaction.
+F0107,2026-08-19,support_ticket,Credit Cards,1,Retail,South,Biometric login stopped working after the update.
+F0108,2026-08-21,mobile_app,Savings Account,1,Premium,South,UPI payment failed but money was deducted.
+F0109,2026-04-26,web,Credit Cards,2,Retail,North,Transfer failed without any reason.
+F0110,2026-10-19,survey,Loans,1,Retail,West,Biometric login stopped working after the update.
+F0111,2026-07-26,survey,Loans,2,Premium,North,Notifications are not arriving.
+F0112,2026-06-15,survey,Mobile Banking,2,Retail,South,Application is extremely slow during peak hours.
+F0113,2026-01-11,survey,Mobile Banking,4,Premium,West,Great banking experience overall.
+F0114,2026-10-27,support_ticket,Loans,4,Premium,East,The app is easy to use and very reliable.
+F0115,2026-02-23,web,Credit Cards,2,Premium,West,Unable to add beneficiary for transfer.
+F0116,2026-10-09,mobile_app,Loans,1,Retail,East,UPI payment failed but money was deducted.
+F0117,2026-07-26,mobile_app,Loans,1,Premium,North,Payment was debited twice for a single transaction.
+F0118,2026-09-13,support_ticket,Mobile Banking,1,Retail,East,Biometric login stopped working after the update.
+F0119,2026-08-13,support_ticket,Mobile Banking,2,Retail,South,Unable to add beneficiary for transfer.
+F0120,2026-10-10,mobile_app,Loans,2,Retail,South,Application is extremely slow during peak hours.
+F0121,2026-08-25,mobile_app,Savings Account,5,Business,East,The app is easy to use and very reliable.
+F0122,2026-08-01,support_ticket,Loans,2,Retail,West,Unable to add beneficiary for transfer.
+F0123,2026-04-08,web,Mobile Banking,2,Premium,West,Unable to add beneficiary for transfer.
+F0124,2026-05-17,mobile_app,Credit Cards,1,Business,East,Refund has not been credited yet.
+F0125,2026-09-08,web,Loans,5,Premium,East,Great banking experience overall.
+F0126,2026-07-13,support_ticket,Credit Cards,2,Retail,South,Transfer failed without any reason.
+F0127,2026-07-30,mobile_app,Credit Cards,2,Business,West,The app crashes when I open transaction history.
+F0128,2026-07-17,web,Loans,2,Retail,South,Application is extremely slow during peak hours.
+F0129,2026-06-19,mobile_app,Loans,2,Retail,West,Transfer failed without any reason.
+F0130,2026-07-29,web,Mobile Banking,1,Premium,East,OTP verification fails every time I try to log in.
+F0131,2026-07-23,mobile_app,Credit Cards,1,Business,West,Refund has not been credited yet.
+F0132,2026-09-07,mobile_app,Mobile Banking,4,Business,East,Great banking experience overall.
+F0133,2026-02-16,support_ticket,Mobile Banking,4,Premium,South,Great banking experience overall.
+F0134,2026-01-24,survey,Mobile Banking,2,Premium,East,The app crashes when I open transaction history.
+F0135,2026-05-06,support_ticket,Savings Account,1,Retail,South,Payment was debited twice for a single transaction.
+F0136,2026-05-04,support_ticket,Savings Account,1,Retail,West,Biometric login stopped working after the update.
+F0137,2026-05-11,mobile_app,Loans,2,Premium,South,Application is extremely slow during peak hours.
+F0138,2026-06-03,support_ticket,Credit Cards,1,Premium,East,Biometric login stopped working after the update.
+F0139,2026-09-05,mobile_app,Savings Account,1,Premium,East,Biometric login stopped working after the update.
+F0140,2026-06-01,mobile_app,Loans,2,Premium,North,Notifications are not arriving.
+F0141,2026-01-26,support_ticket,Credit Cards,2,Retail,East,Notifications are not arriving.
+F0142,2026-05-09,web,Mobile Banking,1,Business,North,Payment was debited twice for a single transaction.
+F0143,2026-01-18,survey,Savings Account,1,Retail,East,UPI payment failed but money was deducted.
+F0144,2026-03-31,web,Savings Account,1,Business,East,UPI payment failed but money was deducted.
+F0145,2026-03-26,survey,Loans,2,Premium,East,Unable to add beneficiary for transfer.
+F0146,2026-02-08,web,Savings Account,5,Business,East,Fund transfers are fast and seamless.
+F0147,2026-01-08,survey,Mobile Banking,1,Premium,East,Biometric login stopped working after the update.
+F0148,2026-05-15,support_ticket,Credit Cards,2,Retail,South,Notifications are not arriving.
+F0149,2026-10-15,survey,Savings Account,2,Business,North,Transfer failed without any reason.
+F0150,2026-06-04,support_ticket,Mobile Banking,2,Retail,North,Application is extremely slow during peak hours.
+F0151,2026-09-10,mobile_app,Mobile Banking,4,Business,South,Fund transfers are fast and seamless.
+F0152,2026-10-04,support_ticket,Savings Account,2,Premium,North,Unable to add beneficiary for transfer.
+F0153,2026-07-28,survey,Mobile Banking,5,Retail,West,Great banking experience overall.
+F0154,2026-07-05,mobile_app,Credit Cards,2,Business,East,Fund transfer remains pending for hours.
+F0155,2026-04-08,mobile_app,Loans,1,Retail,South,Biometric login stopped working after the update.
+F0156,2026-01-11,mobile_app,Credit Cards,2,Retail,South,Notifications are not arriving.
+F0157,2026-02-05,web,Savings Account,3,Retail,East,Customer support takes too long to respond.
+F0158,2026-05-22,web,Savings Account,3,Business,East,Customer support takes too long to respond.
+F0159,2026-01-14,web,Mobile Banking,3,Premium,South,Customer support takes too long to respond.
+F0160,2026-03-31,survey,Mobile Banking,2,Retail,West,The app crashes when I open transaction history.
+F0161,2026-02-02,support_ticket,Loans,2,Premium,North,Transfer failed without any reason.
+F0162,2026-01-23,survey,Loans,2,Business,North,Fund transfer remains pending for hours.
+F0163,2026-07-25,support_ticket,Mobile Banking,1,Premium,West,Biometric login stopped working after the update.
+F0164,2026-06-14,web,Mobile Banking,1,Retail,East,OTP verification fails every time I try to log in.
+F0165,2026-10-08,survey,Loans,2,Business,East,Notifications are not arriving.
+F0166,2026-08-09,mobile_app,Mobile Banking,2,Business,South,Transfer failed without any reason.
+F0167,2026-07-31,survey,Loans,2,Premium,West,Fund transfer remains pending for hours.
+F0168,2026-08-07,survey,Credit Cards,3,Premium,South,Support ticket has been open for days.
+F0169,2026-02-04,mobile_app,Mobile Banking,2,Retail,West,Application is extremely slow during peak hours.
+F0170,2026-07-10,web,Mobile Banking,1,Business,East,Account gets locked even with correct password.
+F0171,2026-07-01,support_ticket,Mobile Banking,2,Premium,East,Application is extremely slow during peak hours.
+F0172,2026-09-17,web,Savings Account,1,Business,West,Refund has not been credited yet.
+F0173,2026-06-29,survey,Mobile Banking,1,Premium,South,Payment was debited twice for a single transaction.
+F0174,2026-10-13,mobile_app,Credit Cards,4,Retail,East,Great banking experience overall.
+F0175,2026-06-23,survey,Mobile Banking,2,Retail,South,Application is extremely slow during peak hours.
+F0176,2026-02-05,web,Mobile Banking,2,Retail,South,Application is extremely slow during peak hours.
+F0177,2026-06-24,web,Credit Cards,1,Premium,East,UPI payment failed but money was deducted.
+F0178,2026-01-27,web,Savings Account,3,Business,North,Customer support takes too long to respond.
+F0179,2026-08-15,support_ticket,Loans,2,Business,West,Application is extremely slow during peak hours.
+F0180,2026-09-20,mobile_app,Credit Cards,2,Premium,North,Fund transfer remains pending for hours.
+F0181,2026-09-07,survey,Mobile Banking,1,Retail,West,Refund has not been credited yet.
+F0182,2026-01-04,web,Credit Cards,4,Retail,East,The app is easy to use and very reliable.
+F0183,2026-01-04,support_ticket,Loans,1,Retail,South,Payment was debited twice for a single transaction.
+F0184,2026-04-28,survey,Mobile Banking,2,Premium,North,Transfer failed without any reason.
+F0185,2026-02-09,survey,Loans,2,Business,West,Unable to add beneficiary for transfer.
+F0186,2026-05-29,mobile_app,Loans,2,Retail,East,Application is extremely slow during peak hours.
+F0187,2026-08-24,survey,Mobile Banking,1,Premium,North,Account gets locked even with correct password.
+F0188,2026-07-25,mobile_app,Loans,1,Premium,East,Refund has not been credited yet.
+F0189,2026-02-09,mobile_app,Savings Account,1,Premium,East,Payment was debited twice for a single transaction.
+F0190,2026-05-01,mobile_app,Savings Account,3,Premium,South,Customer support takes too long to respond.
+F0191,2026-02-08,web,Loans,1,Premium,West,OTP verification fails every time I try to log in.
+F0192,2026-06-15,survey,Savings Account,2,Premium,North,Notifications are not arriving.
+F0193,2026-06-05,survey,Mobile Banking,2,Premium,North,Transfer failed without any reason.
+F0194,2026-01-20,mobile_app,Credit Cards,1,Premium,North,UPI payment failed but money was deducted.
+F0195,2026-09-17,support_ticket,Loans,2,Business,North,The app crashes when I open transaction history.
+F0196,2026-04-07,survey,Loans,2,Business,South,Transfer failed without any reason.
+F0197,2026-02-22,survey,Mobile Banking,4,Retail,South,Fund transfers are fast and seamless.
+F0198,2026-09-26,web,Credit Cards,2,Premium,East,Application is extremely slow during peak hours.
+F0199,2026-01-27,survey,Mobile Banking,2,Premium,North,Unable to add beneficiary for transfer.
+F0200,2026-05-26,survey,Savings Account,2,Premium,North,Unable to add beneficiary for transfer.
+F0201,2026-06-29,survey,Loans,2,Retail,North,The app crashes when I open transaction history.
+F0202,2026-06-18,web,Mobile Banking,1,Business,West,UPI payment failed but money was deducted.
+F0203,2026-07-05,survey,Savings Account,2,Retail,East,Fund transfer remains pending for hours.
+F0204,2026-04-09,web,Savings Account,4,Retail,East,Fund transfers are fast and seamless.
+F0205,2026-09-17,mobile_app,Credit Cards,4,Business,West,The app is easy to use and very reliable.
+F0206,2026-03-26,support_ticket,Mobile Banking,1,Premium,East,OTP verification fails every time I try to log in.
+F0207,2026-08-16,survey,Loans,2,Retail,South,The app crashes when I open transaction history.
+F0208,2026-04-10,survey,Loans,1,Premium,East,UPI payment failed but money was deducted.
+F0209,2026-03-24,web,Savings Account,3,Premium,North,Support ticket has been open for days.
+F0210,2026-10-11,mobile_app,Mobile Banking,2,Premium,North,Application is extremely slow during peak hours.
+F0211,2026-08-19,web,Loans,3,Retail,South,Support ticket has been open for days.
+F0212,2026-01-14,support_ticket,Mobile Banking,5,Business,East,Fund transfers are fast and seamless.
+F0213,2026-07-11,web,Mobile Banking,1,Premium,North,Payment was debited twice for a single transaction.
+F0214,2026-06-21,web,Savings Account,4,Premium,West,Great banking experience overall.
+F0215,2026-08-29,support_ticket,Mobile Banking,2,Retail,North,The app crashes when I open transaction history.
+F0216,2026-10-08,support_ticket,Mobile Banking,1,Premium,South,Payment was debited twice for a single transaction.
+F0217,2026-05-03,support_ticket,Loans,1,Retail,North,Payment was debited twice for a single transaction.
+F0218,2026-10-02,mobile_app,Savings Account,4,Premium,West,Fund transfers are fast and seamless.
+F0219,2026-05-04,support_ticket,Savings Account,1,Business,North,Biometric login stopped working after the update.
+F0220,2026-02-04,mobile_app,Loans,2,Premium,North,Unable to add beneficiary for transfer.
+F0221,2026-05-10,mobile_app,Credit Cards,2,Retail,East,Application is extremely slow during peak hours.
+F0222,2026-02-23,survey,Savings Account,1,Retail,East,Refund has not been credited yet.
+F0223,2026-03-31,support_ticket,Loans,2,Business,South,Transfer failed without any reason.
+F0224,2026-08-23,mobile_app,Credit Cards,4,Retail,South,The app is easy to use and very reliable.
+F0225,2026-06-08,support_ticket,Loans,5,Retail,South,Fund transfers are fast and seamless.
+F0226,2026-06-19,survey,Mobile Banking,1,Premium,West,Payment was debited twice for a single transaction.
+F0227,2026-08-14,support_ticket,Credit Cards,4,Premium,West,Great banking experience overall.
+F0228,2026-05-17,mobile_app,Loans,1,Retail,West,Refund has not been credited yet.
+F0229,2026-10-07,survey,Credit Cards,2,Retail,North,The app crashes when I open transaction history.
+F0230,2026-06-06,support_ticket,Loans,1,Retail,West,UPI payment failed but money was deducted.
+F0231,2026-06-30,support_ticket,Credit Cards,1,Business,North,Payment was debited twice for a single transaction.
+F0232,2026-07-27,survey,Savings Account,1,Retail,South,Account gets locked even with correct password.
+F0233,2026-08-13,mobile_app,Savings Account,4,Retail,East,Great banking experience overall.
+F0234,2026-01-17,web,Loans,1,Premium,East,Refund has not been credited yet.
+F0235,2026-10-21,web,Credit Cards,2,Premium,East,Fund transfer remains pending for hours.
+F0236,2026-02-28,mobile_app,Savings Account,2,Premium,West,The app crashes when I open transaction history.
+F0237,2026-05-15,survey,Loans,4,Business,East,The app is easy to use and very reliable.
+F0238,2026-04-13,mobile_app,Savings Account,2,Retail,West,Application is extremely slow during peak hours.
+F0239,2026-08-16,mobile_app,Credit Cards,1,Business,East,Account gets locked even with correct password.
+F0240,2026-10-05,survey,Credit Cards,2,Retail,South,Notifications are not arriving.
+F0241,2026-03-04,web,Savings Account,3,Retail,West,Customer support takes too long to respond.
+F0242,2026-10-21,survey,Loans,1,Business,South,Account gets locked even with correct password.
+F0243,2026-02-03,survey,Loans,2,Business,West,The app crashes when I open transaction history.
+F0244,2026-10-22,mobile_app,Savings Account,2,Premium,North,Unable to add beneficiary for transfer.
+F0245,2026-09-22,survey,Savings Account,2,Business,South,Transfer failed without any reason.
+F0246,2026-08-10,mobile_app,Mobile Banking,3,Business,South,Customer support takes too long to respond.
+F0247,2026-06-15,web,Credit Cards,1,Business,East,Payment was debited twice for a single transaction.
+F0248,2026-04-11,survey,Savings Account,5,Business,North,Fund transfers are fast and seamless.
+F0249,2026-10-25,web,Savings Account,2,Business,East,Fund transfer remains pending for hours.
+F0250,2026-01-22,mobile_app,Mobile Banking,4,Business,East,Great banking experience overall.
+F0251,2026-08-02,mobile_app,Loans,2,Business,East,Notifications are not arriving.
+F0252,2026-09-05,web,Loans,2,Premium,West,Application is extremely slow during peak hours.
+F0253,2026-03-22,support_ticket,Loans,1,Premium,West,OTP verification fails every time I try to log in.
+F0254,2026-03-15,survey,Credit Cards,1,Business,East,Refund has not been credited yet.
+F0255,2026-07-09,mobile_app,Credit Cards,4,Premium,North,The app is easy to use and very reliable.
+F0256,2026-03-14,mobile_app,Mobile Banking,1,Premium,West,Payment was debited twice for a single transaction.
+F0257,2026-05-08,web,Credit Cards,5,Retail,South,Fund transfers are fast and seamless.
+F0258,2026-08-28,support_ticket,Credit Cards,2,Premium,North,Transfer failed without any reason.
+F0259,2026-09-16,support_ticket,Savings Account,1,Retail,East,Biometric login stopped working after the update.
+F0260,2026-09-11,support_ticket,Credit Cards,1,Business,North,Biometric login stopped working after the update.
+F0261,2026-03-10,survey,Credit Cards,5,Premium,North,Fund transfers are fast and seamless.
+F0262,2026-10-15,web,Credit Cards,2,Business,East,Transfer failed without any reason.
+F0263,2026-08-19,survey,Mobile Banking,1,Retail,North,Account gets locked even with correct password.
+F0264,2026-10-13,survey,Savings Account,2,Retail,West,Unable to add beneficiary for transfer.
+F0265,2026-01-20,web,Credit Cards,2,Premium,West,Fund transfer remains pending for hours.
+F0266,2026-03-13,survey,Credit Cards,1,Retail,West,Account gets locked even with correct password.
+F0267,2026-06-03,survey,Loans,5,Premium,North,Great banking experience overall.
+F0268,2026-02-26,support_ticket,Credit Cards,1,Business,North,Refund has not been credited yet.
+F0269,2026-10-24,web,Mobile Banking,2,Business,West,Application is extremely slow during peak hours.
+F0270,2026-07-14,web,Savings Account,1,Retail,North,Account gets locked even with correct password.
+F0271,2026-06-10,support_ticket,Savings Account,1,Premium,South,Biometric login stopped working after the update.
+F0272,2026-08-30,mobile_app,Savings Account,2,Business,South,Transfer failed without any reason.
+F0273,2026-09-02,support_ticket,Credit Cards,2,Retail,West,Notifications are not arriving.
+F0274,2026-10-07,survey,Credit Cards,5,Retail,South,Fund transfers are fast and seamless.
+F0275,2026-04-26,survey,Credit Cards,1,Business,South,UPI payment failed but money was deducted.
+F0276,2026-06-12,support_ticket,Credit Cards,2,Business,East,Application is extremely slow during peak hours.
+F0277,2026-10-06,support_ticket,Loans,1,Premium,South,Refund has not been credited yet.
+F0278,2026-02-10,survey,Loans,1,Business,East,UPI payment failed but money was deducted.
+F0279,2026-04-14,survey,Credit Cards,3,Retail,North,Customer support takes too long to respond.
+F0280,2026-05-03,web,Mobile Banking,2,Business,South,Notifications are not arriving.
+F0281,2026-02-21,support_ticket,Credit Cards,2,Business,West,The app crashes when I open transaction history.
+F0282,2026-01-03,web,Loans,1,Business,West,OTP verification fails every time I try to log in.
+F0283,2026-05-28,survey,Credit Cards,2,Business,North,Fund transfer remains pending for hours.
+F0284,2026-10-21,web,Mobile Banking,4,Premium,South,The app is easy to use and very reliable.
+F0285,2026-07-23,support_ticket,Savings Account,5,Retail,North,The app is easy to use and very reliable.
+F0286,2026-02-24,survey,Credit Cards,1,Premium,West,Refund has not been credited yet.
+F0287,2026-09-16,support_ticket,Credit Cards,4,Retail,East,The app is easy to use and very reliable.
+F0288,2026-05-12,web,Mobile Banking,1,Business,East,Biometric login stopped working after the update.
+F0289,2026-03-31,support_ticket,Loans,3,Business,East,Customer support takes too long to respond.
+F0290,2026-02-18,web,Savings Account,1,Premium,East,Account gets locked even with correct password.
+F0291,2026-05-14,support_ticket,Savings Account,5,Premium,East,The app is easy to use and very reliable.
+F0292,2026-10-21,mobile_app,Credit Cards,1,Business,East,Refund has not been credited yet.
+F0293,2026-03-02,support_ticket,Credit Cards,2,Retail,West,The app crashes when I open transaction history.
+F0294,2026-06-09,mobile_app,Credit Cards,2,Premium,South,Notifications are not arriving.
+F0295,2026-09-02,web,Loans,1,Business,East,Payment was debited twice for a single transaction.
+F0296,2026-08-30,web,Savings Account,2,Business,North,Transfer failed without any reason.
+F0297,2026-07-05,mobile_app,Mobile Banking,2,Retail,South,Transfer failed without any reason.
+F0298,2026-03-26,survey,Loans,2,Retail,South,The app crashes when I open transaction history.
+F0299,2026-02-16,support_ticket,Mobile Banking,2,Premium,South,Application is extremely slow during peak hours.
+F0300,2026-10-16,mobile_app,Loans,2,Business,East,Unable to add beneficiary for transfer.
+F0301,2026-05-11,mobile_app,Savings Account,3,Business,North,Support ticket has been open for days.
+F0302,2026-02-02,mobile_app,Mobile Banking,1,Premium,North,Biometric login stopped working after the update.
+F0303,2026-03-11,support_ticket,Credit Cards,1,Premium,West,Payment was debited twice for a single transaction.
+F0304,2026-07-12,mobile_app,Savings Account,5,Retail,South,Fund transfers are fast and seamless.
+F0305,2026-09-28,web,Savings Account,4,Retail,East,Fund transfers are fast and seamless.
+F0306,2026-10-06,support_ticket,Loans,2,Retail,South,Transfer failed without any reason.
+F0307,2026-05-22,web,Mobile Banking,2,Retail,West,Fund transfer remains pending for hours.
+F0308,2026-05-04,web,Mobile Banking,2,Retail,North,The app crashes when I open transaction history.
+F0309,2026-01-25,web,Mobile Banking,2,Premium,West,Transfer failed without any reason.
+F0310,2026-01-29,web,Credit Cards,1,Retail,East,Payment was debited twice for a single transaction.
+F0311,2026-06-14,web,Credit Cards,2,Retail,South,Notifications are not arriving.
+F0312,2026-02-01,web,Loans,2,Business,West,Unable to add beneficiary for transfer.
+F0313,2026-07-15,survey,Loans,1,Premium,South,Biometric login stopped working after the update.
+F0314,2026-10-03,support_ticket,Savings Account,1,Retail,East,Payment was debited twice for a single transaction.
+F0315,2026-08-26,mobile_app,Loans,5,Business,South,The app is easy to use and very reliable.
+F0316,2026-04-15,survey,Mobile Banking,2,Premium,East,Unable to add beneficiary for transfer.
+F0317,2026-04-08,mobile_app,Credit Cards,1,Premium,North,Account gets locked even with correct password.
+F0318,2026-10-14,web,Loans,4,Premium,East,The app is easy to use and very reliable.
+F0319,2026-04-19,web,Mobile Banking,5,Retail,South,The app is easy to use and very reliable.
+F0320,2026-10-10,survey,Credit Cards,2,Premium,West,Fund transfer remains pending for hours.
+F0321,2026-06-07,survey,Credit Cards,2,Business,West,Unable to add beneficiary for transfer.
+F0322,2026-08-29,survey,Savings Account,2,Premium,East,Transfer failed without any reason.
+F0323,2026-04-24,web,Mobile Banking,2,Premium,West,Transfer failed without any reason.
+F0324,2026-06-18,web,Loans,1,Business,South,Payment was debited twice for a single transaction.
+F0325,2026-06-22,survey,Loans,2,Business,West,Transfer failed without any reason.
+F0326,2026-06-30,web,Savings Account,2,Business,West,Transfer failed without any reason.
+F0327,2026-01-31,mobile_app,Mobile Banking,1,Business,North,Account gets locked even with correct password.
+F0328,2026-03-12,web,Mobile Banking,3,Business,South,Support ticket has been open for days.
+F0329,2026-08-22,survey,Mobile Banking,1,Business,West,Account gets locked even with correct password.
+F0330,2026-01-04,support_ticket,Mobile Banking,2,Retail,East,The app crashes when I open transaction history.
+F0331,2026-01-09,support_ticket,Savings Account,2,Retail,North,Unable to add beneficiary for transfer.
+F0332,2026-04-09,survey,Credit Cards,2,Premium,West,Fund transfer remains pending for hours.
+F0333,2026-08-24,web,Savings Account,1,Premium,North,Biometric login stopped working after the update.
+F0334,2026-01-17,mobile_app,Loans,2,Premium,West,Notifications are not arriving.
+F0335,2026-01-05,web,Mobile Banking,2,Premium,West,Fund transfer remains pending for hours.
+F0336,2026-10-17,mobile_app,Mobile Banking,2,Retail,South,Application is extremely slow during peak hours.
+F0337,2026-10-18,support_ticket,Credit Cards,4,Retail,East,Great banking experience overall.
+F0338,2026-01-17,web,Credit Cards,4,Retail,South,Great banking experience overall.
+F0339,2026-02-09,survey,Savings Account,3,Business,South,Support ticket has been open for days.
+F0340,2026-10-04,survey,Loans,2,Business,South,Application is extremely slow during peak hours.
+F0341,2026-09-14,survey,Mobile Banking,3,Retail,West,Customer support takes too long to respond.
+F0342,2026-06-24,support_ticket,Credit Cards,1,Retail,East,Payment was debited twice for a single transaction.
+F0343,2026-09-09,web,Credit Cards,3,Business,West,Support ticket has been open for days.
+F0344,2026-10-27,support_ticket,Mobile Banking,2,Business,East,Transfer failed without any reason.
+F0345,2026-02-12,survey,Savings Account,3,Premium,South,Customer support takes too long to respond.
+F0346,2026-07-04,mobile_app,Mobile Banking,3,Retail,East,Support ticket has been open for days.
+F0347,2026-02-22,web,Mobile Banking,2,Retail,West,Unable to add beneficiary for transfer.
+F0348,2026-09-20,support_ticket,Mobile Banking,2,Retail,North,Transfer failed without any reason.
+F0349,2026-06-16,support_ticket,Mobile Banking,1,Premium,West,Payment was debited twice for a single transaction.
+F0350,2026-10-14,web,Savings Account,2,Business,West,Fund transfer remains pending for hours.
+F0351,2026-06-04,survey,Loans,1,Retail,North,Biometric login stopped working after the update.
+F0352,2026-08-04,survey,Loans,1,Retail,East,Biometric login stopped working after the update.
+F0353,2026-09-11,web,Loans,1,Retail,South,Payment was debited twice for a single transaction.
+F0354,2026-06-20,support_ticket,Credit Cards,1,Premium,East,UPI payment failed but money was deducted.
+F0355,2026-03-11,survey,Credit Cards,2,Business,South,Transfer failed without any reason.
+F0356,2026-07-23,survey,Credit Cards,2,Business,West,Fund transfer remains pending for hours.
+F0357,2026-06-16,support_ticket,Credit Cards,5,Premium,North,The app is easy to use and very reliable.
+F0358,2026-10-07,web,Mobile Banking,5,Business,South,The app is easy to use and very reliable.
+F0359,2026-02-05,support_ticket,Loans,2,Retail,East,Unable to add beneficiary for transfer.
+F0360,2026-03-20,support_ticket,Loans,1,Retail,West,Refund has not been credited yet.
+F0361,2026-10-26,support_ticket,Loans,4,Premium,North,Fund transfers are fast and seamless.
+F0362,2026-07-01,web,Mobile Banking,1,Business,West,OTP verification fails every time I try to log in.
+F0363,2026-08-09,mobile_app,Mobile Banking,4,Premium,South,Fund transfers are fast and seamless.
+F0364,2026-10-13,web,Loans,2,Premium,West,Transfer failed without any reason.
+F0365,2026-09-14,web,Credit Cards,2,Retail,West,Transfer failed without any reason.
+F0366,2026-02-13,mobile_app,Savings Account,1,Premium,East,Biometric login stopped working after the update.
+F0367,2026-09-24,support_ticket,Credit Cards,1,Premium,North,Payment was debited twice for a single transaction.
+F0368,2026-08-20,survey,Mobile Banking,2,Premium,North,Transfer failed without any reason.
+F0369,2026-01-12,survey,Mobile Banking,4,Business,South,The app is easy to use and very reliable.
+F0370,2026-03-23,survey,Loans,2,Premium,South,Transfer failed without any reason.
+F0371,2026-04-06,support_ticket,Loans,3,Retail,South,Customer support takes too long to respond.
+F0372,2026-07-19,mobile_app,Savings Account,2,Retail,East,Unable to add beneficiary for transfer.
+F0373,2026-10-23,mobile_app,Savings Account,3,Premium,East,Customer support takes too long to respond.
+F0374,2026-05-15,support_ticket,Credit Cards,1,Business,West,OTP verification fails every time I try to log in.
+F0375,2026-02-28,survey,Credit Cards,2,Premium,South,Notifications are not arriving.
+F0376,2026-06-02,mobile_app,Savings Account,5,Retail,South,Great banking experience overall.
+F0377,2026-07-11,web,Loans,1,Premium,South,Payment was debited twice for a single transaction.
+F0378,2026-04-06,support_ticket,Savings Account,2,Business,South,Application is extremely slow during peak hours.
+F0379,2026-04-06,survey,Loans,2,Business,North,Fund transfer remains pending for hours.
+F0380,2026-09-06,web,Savings Account,5,Business,West,The app is easy to use and very reliable.
+F0381,2026-08-01,support_ticket,Loans,2,Retail,North,Unable to add beneficiary for transfer.
+F0382,2026-05-30,mobile_app,Credit Cards,2,Retail,East,The app crashes when I open transaction history.
+F0383,2026-10-17,support_ticket,Mobile Banking,1,Business,North,Biometric login stopped working after the update.
+F0384,2026-07-07,mobile_app,Loans,1,Business,South,Refund has not been credited yet.
+F0385,2026-05-07,survey,Mobile Banking,5,Premium,East,The app is easy to use and very reliable.
+F0386,2026-08-13,mobile_app,Savings Account,4,Business,East,The app is easy to use and very reliable.
+F0387,2026-08-08,web,Savings Account,4,Retail,North,Great banking experience overall.
+F0388,2026-05-24,web,Credit Cards,2,Business,East,Notifications are not arriving.
+F0389,2026-09-21,mobile_app,Savings Account,1,Premium,North,UPI payment failed but money was deducted.
+F0390,2026-03-06,web,Savings Account,4,Business,East,Great banking experience overall.
+F0391,2026-07-21,support_ticket,Savings Account,5,Business,West,Great banking experience overall.
+F0392,2026-02-17,support_ticket,Credit Cards,1,Business,East,Payment was debited twice for a single transaction.
+F0393,2026-06-17,mobile_app,Mobile Banking,2,Business,West,Unable to add beneficiary for transfer.
+F0394,2026-07-03,mobile_app,Loans,2,Retail,West,Notifications are not arriving.
+F0395,2026-05-18,survey,Credit Cards,5,Business,South,Fund transfers are fast and seamless.
+F0396,2026-06-25,mobile_app,Mobile Banking,2,Retail,West,Application is extremely slow during peak hours.
+F0397,2026-08-14,support_ticket,Mobile Banking,1,Premium,South,OTP verification fails every time I try to log in.
+F0398,2026-06-04,web,Credit Cards,4,Business,East,The app is easy to use and very reliable.
+F0399,2026-03-26,mobile_app,Loans,1,Business,East,UPI payment failed but money was deducted.
+F0400,2026-08-08,mobile_app,Mobile Banking,3,Retail,South,Customer support takes too long to respond.
+F0401,2026-04-26,support_ticket,Mobile Banking,2,Retail,East,Fund transfer remains pending for hours.
+F0402,2026-03-09,support_ticket,Mobile Banking,4,Premium,North,Fund transfers are fast and seamless.
+F0403,2026-02-22,survey,Credit Cards,3,Premium,South,Customer support takes too long to respond.
+F0404,2026-03-15,mobile_app,Mobile Banking,2,Business,South,Fund transfer remains pending for hours.
+F0405,2026-04-20,web,Loans,2,Business,West,Transfer failed without any reason.
+F0406,2026-02-21,web,Mobile Banking,5,Premium,West,The app is easy to use and very reliable.
+F0407,2026-05-07,survey,Mobile Banking,1,Retail,East,Payment was debited twice for a single transaction.
+F0408,2026-06-04,web,Savings Account,3,Business,West,Customer support takes too long to respond.
+F0409,2026-05-03,support_ticket,Loans,1,Retail,South,Payment was debited twice for a single transaction.
+F0410,2026-02-06,mobile_app,Credit Cards,2,Premium,South,Transfer failed without any reason.
+F0411,2026-08-04,survey,Savings Account,2,Premium,North,Transfer failed without any reason.
+F0412,2026-01-08,survey,Savings Account,1,Retail,North,OTP verification fails every time I try to log in.
+F0413,2026-09-17,survey,Loans,5,Business,West,Fund transfers are fast and seamless.
+F0414,2026-10-03,web,Credit Cards,1,Retail,East,Account gets locked even with correct password.
+F0415,2026-03-21,survey,Loans,1,Business,North,OTP verification fails every time I try to log in.
+F0416,2026-05-03,mobile_app,Savings Account,1,Retail,West,UPI payment failed but money was deducted.
+F0417,2026-01-29,survey,Savings Account,1,Retail,North,Account gets locked even with correct password.
+F0418,2026-01-06,web,Loans,2,Premium,East,Notifications are not arriving.
+F0419,2026-05-18,mobile_app,Mobile Banking,1,Premium,West,OTP verification fails every time I try to log in.
+F0420,2026-05-15,mobile_app,Loans,1,Premium,East,Payment was debited twice for a single transaction.
+F0421,2026-03-27,survey,Savings Account,1,Premium,North,Account gets locked even with correct password.
+F0422,2026-03-01,web,Mobile Banking,4,Retail,South,Great banking experience overall.
+F0423,2026-07-16,web,Savings Account,1,Retail,West,Biometric login stopped working after the update.
+F0424,2026-08-02,survey,Credit Cards,1,Retail,East,Payment was debited twice for a single transaction.
+F0425,2026-01-27,web,Savings Account,1,Business,North,Account gets locked even with correct password.
+F0426,2026-08-27,survey,Credit Cards,5,Retail,West,The app is easy to use and very reliable.
+F0427,2026-05-30,survey,Savings Account,1,Premium,East,OTP verification fails every time I try to log in.
+F0428,2026-04-11,web,Savings Account,2,Retail,West,Application is extremely slow during peak hours.
+F0429,2026-06-27,mobile_app,Credit Cards,1,Retail,West,Account gets locked even with correct password.
+F0430,2026-06-07,mobile_app,Savings Account,4,Premium,West,Great banking experience overall.
+F0431,2026-05-24,mobile_app,Mobile Banking,4,Business,West,The app is easy to use and very reliable.
+F0432,2026-08-23,mobile_app,Mobile Banking,2,Business,South,Application is extremely slow during peak hours.
+F0433,2026-02-08,mobile_app,Loans,2,Business,South,Application is extremely slow during peak hours.
+F0434,2026-06-11,support_ticket,Credit Cards,1,Premium,West,UPI payment failed but money was deducted.
+F0435,2026-04-14,web,Mobile Banking,1,Retail,North,Payment was debited twice for a single transaction.
+F0436,2026-06-10,support_ticket,Mobile Banking,1,Business,East,Biometric login stopped working after the update.
+F0437,2026-08-20,survey,Loans,5,Retail,North,The app is easy to use and very reliable.
+F0438,2026-06-05,mobile_app,Savings Account,1,Premium,South,Account gets locked even with correct password.
+F0439,2026-07-02,support_ticket,Mobile Banking,1,Business,East,OTP verification fails every time I try to log in.
+F0440,2026-01-16,support_ticket,Loans,1,Business,South,Payment was debited twice for a single transaction.
+F0441,2026-03-13,mobile_app,Mobile Banking,1,Retail,South,OTP verification fails every time I try to log in.
+F0442,2026-07-10,mobile_app,Credit Cards,1,Retail,North,Biometric login stopped working after the update.
+F0443,2026-08-16,web,Mobile Banking,5,Retail,North,The app is easy to use and very reliable.
+F0444,2026-03-28,support_ticket,Loans,5,Retail,West,The app is easy to use and very reliable.
+F0445,2026-07-01,web,Savings Account,2,Premium,East,The app crashes when I open transaction history.
+F0446,2026-01-18,web,Credit Cards,2,Premium,West,Fund transfer remains pending for hours.
+F0447,2026-02-01,mobile_app,Credit Cards,5,Retail,West,Fund transfers are fast and seamless.
+F0448,2026-05-08,mobile_app,Loans,1,Business,East,Account gets locked even with correct password.
+F0449,2026-06-26,survey,Loans,2,Premium,South,Unable to add beneficiary for transfer.
+F0450,2026-04-23,mobile_app,Credit Cards,1,Retail,West,Account gets locked even with correct password.
+F0451,2026-04-30,web,Mobile Banking,2,Retail,South,Transfer failed without any reason.
+F0452,2026-01-29,web,Loans,1,Premium,South,Refund has not been credited yet.
+F0453,2026-06-12,survey,Mobile Banking,1,Business,East,Account gets locked even with correct password.
+F0454,2026-03-14,web,Loans,5,Retail,West,Great banking experience overall.
+F0455,2026-04-30,web,Mobile Banking,1,Business,West,OTP verification fails every time I try to log in.
+F0456,2026-04-14,web,Credit Cards,1,Business,South,Account gets locked even with correct password.
+F0457,2026-01-31,mobile_app,Savings Account,4,Retail,East,Fund transfers are fast and seamless.
+F0458,2026-07-22,mobile_app,Credit Cards,5,Premium,South,Fund transfers are fast and seamless.
+F0459,2026-08-12,support_ticket,Credit Cards,4,Business,East,Great banking experience overall.
+F0460,2026-03-31,support_ticket,Credit Cards,1,Business,East,Refund has not been credited yet.
+F0461,2026-01-01,support_ticket,Mobile Banking,1,Retail,East,Account gets locked even with correct password.
+F0462,2026-04-24,mobile_app,Loans,4,Premium,North,Great banking experience overall.
+F0463,2026-03-27,mobile_app,Credit Cards,1,Premium,North,UPI payment failed but money was deducted.
+F0464,2026-02-04,survey,Credit Cards,1,Retail,North,Payment was debited twice for a single transaction.
+F0465,2026-08-03,web,Loans,1,Premium,West,Biometric login stopped working after the update.
+F0466,2026-02-21,support_ticket,Savings Account,1,Retail,West,UPI payment failed but money was deducted.
+F0467,2026-05-31,mobile_app,Credit Cards,1,Premium,North,OTP verification fails every time I try to log in.
+F0468,2026-07-12,web,Mobile Banking,1,Business,North,OTP verification fails every time I try to log in.
+F0469,2026-09-05,mobile_app,Loans,1,Business,South,Refund has not been credited yet.
+F0470,2026-03-22,mobile_app,Mobile Banking,2,Premium,South,Application is extremely slow during peak hours.
+F0471,2026-10-11,survey,Credit Cards,5,Retail,North,Fund transfers are fast and seamless.
+F0472,2026-10-09,support_ticket,Savings Account,1,Retail,East,Account gets locked even with correct password.
+F0473,2026-05-31,support_ticket,Savings Account,1,Retail,North,OTP verification fails every time I try to log in.
+F0474,2026-05-30,mobile_app,Loans,1,Retail,East,Refund has not been credited yet.
+F0475,2026-09-08,survey,Mobile Banking,3,Business,West,Support ticket has been open for days.
+F0476,2026-07-09,web,Loans,1,Retail,East,Biometric login stopped working after the update.
+F0477,2026-04-26,survey,Mobile Banking,2,Retail,North,Unable to add beneficiary for transfer.
+F0478,2026-10-05,support_ticket,Savings Account,1,Business,North,Biometric login stopped working after the update.
+F0479,2026-08-03,support_ticket,Savings Account,5,Premium,North,Great banking experience overall.
+F0480,2026-01-18,web,Mobile Banking,2,Premium,South,Transfer failed without any reason.
+F0481,2026-04-19,web,Savings Account,4,Premium,North,The app is easy to use and very reliable.
+F0482,2026-04-14,web,Credit Cards,5,Business,North,Fund transfers are fast and seamless.
+F0483,2026-07-23,survey,Credit Cards,1,Business,West,Account gets locked even with correct password.
+F0484,2026-09-25,support_ticket,Mobile Banking,5,Retail,South,The app is easy to use and very reliable.
+F0485,2026-02-21,mobile_app,Mobile Banking,2,Premium,East,Notifications are not arriving.
+F0486,2026-07-16,support_ticket,Loans,4,Retail,East,Fund transfers are fast and seamless.
+F0487,2026-07-25,mobile_app,Loans,2,Premium,South,Transfer failed without any reason.
+F0488,2026-05-18,survey,Mobile Banking,1,Premium,East,Biometric login stopped working after the update.
+F0489,2026-02-20,web,Savings Account,1,Premium,West,UPI payment failed but money was deducted.
+F0490,2026-05-18,support_ticket,Mobile Banking,3,Retail,West,Support ticket has been open for days.
+F0491,2026-09-06,survey,Mobile Banking,1,Business,South,UPI payment failed but money was deducted.
+F0492,2026-09-17,support_ticket,Savings Account,1,Business,North,Account gets locked even with correct password.
+F0493,2026-01-30,web,Mobile Banking,1,Premium,North,OTP verification fails every time I try to log in.
+F0494,2026-04-12,survey,Credit Cards,5,Business,West,Great banking experience overall.
+F0495,2026-01-16,web,Credit Cards,2,Premium,West,The app crashes when I open transaction history.
+F0496,2026-10-10,survey,Credit Cards,1,Retail,East,Biometric login stopped working after the update.
+F0497,2026-05-26,mobile_app,Loans,3,Retail,South,Customer support takes too long to respond.
+F0498,2026-04-24,web,Savings Account,5,Business,West,The app is easy to use and very reliable.
+F0499,2026-01-05,support_ticket,Savings Account,2,Business,South,Transfer failed without any reason.
+F0500,2026-04-25,survey,Credit Cards,2,Business,East,The app crashes when I open transaction history.
+F0501,2026-06-28,support_ticket,Credit Cards,2,Retail,West,Unable to add beneficiary for transfer.
+F0502,2026-07-23,mobile_app,Mobile Banking,1,Business,East,Refund has not been credited yet.
+F0503,2026-05-25,survey,Mobile Banking,2,Premium,North,Notifications are not arriving.
+F0504,2026-06-16,survey,Credit Cards,1,Business,East,UPI payment failed but money was deducted.
+F0505,2026-05-04,mobile_app,Loans,1,Business,East,Account gets locked even with correct password.
+F0506,2026-01-14,support_ticket,Credit Cards,2,Premium,West,Notifications are not arriving.
+F0507,2026-01-19,web,Credit Cards,2,Business,South,Transfer failed without any reason.
+F0508,2026-09-01,survey,Credit Cards,2,Retail,South,Notifications are not arriving.
+F0509,2026-03-07,survey,Savings Account,1,Business,East,UPI payment failed but money was deducted.
+F0510,2026-07-01,web,Credit Cards,2,Premium,East,The app crashes when I open transaction history.
+F0511,2026-05-31,support_ticket,Mobile Banking,1,Premium,North,Refund has not been credited yet.
+F0512,2026-10-25,mobile_app,Loans,4,Business,North,Great banking experience overall.
+F0513,2026-09-29,survey,Loans,4,Retail,South,Fund transfers are fast and seamless.
+F0514,2026-07-29,support_ticket,Savings Account,5,Business,South,Fund transfers are fast and seamless.
+F0515,2026-06-20,web,Credit Cards,3,Business,North,Support ticket has been open for days.
+F0516,2026-04-18,web,Savings Account,1,Premium,North,Biometric login stopped working after the update.
+F0517,2026-08-08,support_ticket,Loans,1,Premium,West,Biometric login stopped working after the update.
+F0518,2026-04-13,survey,Mobile Banking,1,Premium,South,Account gets locked even with correct password.
+F0519,2026-05-08,web,Credit Cards,1,Premium,South,OTP verification fails every time I try to log in.
+F0520,2026-06-06,web,Mobile Banking,1,Retail,East,Account gets locked even with correct password.
+F0521,2026-09-24,survey,Loans,4,Premium,West,Fund transfers are fast and seamless.
+F0522,2026-03-26,support_ticket,Mobile Banking,1,Retail,South,Payment was debited twice for a single transaction.
+F0523,2026-04-19,mobile_app,Savings Account,3,Retail,East,Customer support takes too long to respond.
+F0524,2026-07-12,survey,Mobile Banking,2,Business,North,The app crashes when I open transaction history.
+F0525,2026-01-11,mobile_app,Mobile Banking,2,Premium,West,Notifications are not arriving.
+F0526,2026-05-10,support_ticket,Savings Account,2,Retail,North,Transfer failed without any reason.
+F0527,2026-02-21,survey,Savings Account,1,Premium,North,Refund has not been credited yet.
+F0528,2026-03-02,survey,Mobile Banking,2,Retail,West,Transfer failed without any reason.
+F0529,2026-05-15,web,Credit Cards,1,Business,West,OTP verification fails every time I try to log in.
+F0530,2026-10-08,support_ticket,Savings Account,1,Business,West,Payment was debited twice for a single transaction.
+F0531,2026-01-07,mobile_app,Mobile Banking,1,Business,West,Payment was debited twice for a single transaction.
+F0532,2026-09-19,mobile_app,Mobile Banking,1,Premium,South,OTP verification fails every time I try to log in.
+F0533,2026-05-16,support_ticket,Mobile Banking,2,Retail,South,Unable to add beneficiary for transfer.
+F0534,2026-07-04,survey,Loans,4,Retail,North,Fund transfers are fast and seamless.
+F0535,2026-03-29,survey,Credit Cards,1,Premium,East,OTP verification fails every time I try to log in.
+F0536,2026-07-10,survey,Savings Account,4,Premium,West,The app is easy to use and very reliable.
+F0537,2026-07-17,support_ticket,Loans,4,Retail,South,Fund transfers are fast and seamless.
+F0538,2026-03-23,mobile_app,Loans,2,Business,West,The app crashes when I open transaction history.
+F0539,2026-08-13,web,Loans,5,Business,North,Great banking experience overall.
+F0540,2026-03-08,support_ticket,Loans,4,Premium,West,Great banking experience overall.
+F0541,2026-06-10,mobile_app,Savings Account,1,Business,East,Biometric login stopped working after the update.
+F0542,2026-02-18,support_ticket,Savings Account,2,Premium,East,Transfer failed without any reason.
+F0543,2026-07-17,web,Mobile Banking,2,Retail,South,Notifications are not arriving.
+F0544,2026-09-11,web,Mobile Banking,2,Premium,East,Unable to add beneficiary for transfer.
+F0545,2026-01-26,web,Loans,1,Premium,South,UPI payment failed but money was deducted.
+F0546,2026-10-21,support_ticket,Mobile Banking,1,Premium,West,Biometric login stopped working after the update.
+F0547,2026-01-10,mobile_app,Loans,1,Premium,North,UPI payment failed but money was deducted.
+F0548,2026-02-16,survey,Savings Account,2,Business,West,Fund transfer remains pending for hours.
+F0549,2026-01-28,web,Loans,5,Business,West,Fund transfers are fast and seamless.
+F0550,2026-08-20,mobile_app,Mobile Banking,2,Business,South,Application is extremely slow during peak hours.
+F0551,2026-05-30,survey,Mobile Banking,1,Retail,South,Biometric login stopped working after the update.
+F0552,2026-07-29,mobile_app,Credit Cards,2,Business,South,Transfer failed without any reason.
+F0553,2026-04-21,support_ticket,Savings Account,1,Business,East,Biometric login stopped working after the update.
+F0554,2026-01-24,mobile_app,Loans,1,Premium,South,Biometric login stopped working after the update.
+F0555,2026-09-29,mobile_app,Loans,5,Business,South,The app is easy to use and very reliable.
+F0556,2026-03-07,mobile_app,Loans,2,Business,East,The app crashes when I open transaction history.
+F0557,2026-08-03,web,Credit Cards,2,Premium,East,Unable to add beneficiary for transfer.
+F0558,2026-03-10,web,Loans,5,Business,East,Fund transfers are fast and seamless.
+F0559,2026-04-22,web,Savings Account,2,Business,East,Notifications are not arriving.
+F0560,2026-03-09,web,Credit Cards,2,Business,North,Notifications are not arriving.
+F0561,2026-10-26,support_ticket,Credit Cards,3,Premium,North,Support ticket has been open for days.
+F0562,2026-07-15,web,Mobile Banking,2,Business,North,Fund transfer remains pending for hours.
+F0563,2026-05-27,survey,Savings Account,1,Retail,East,OTP verification fails every time I try to log in.
+F0564,2026-01-17,survey,Loans,1,Retail,South,Refund has not been credited yet.
+F0565,2026-05-02,survey,Mobile Banking,3,Premium,West,Support ticket has been open for days.
+F0566,2026-06-10,mobile_app,Mobile Banking,2,Business,East,Transfer failed without any reason.
+F0567,2026-04-26,survey,Savings Account,1,Business,South,UPI payment failed but money was deducted.
+F0568,2026-02-08,web,Savings Account,1,Business,North,Payment was debited twice for a single transaction.
+F0569,2026-05-23,survey,Savings Account,1,Retail,East,UPI payment failed but money was deducted.
+F0570,2026-03-21,mobile_app,Savings Account,1,Premium,North,Biometric login stopped working after the update.
+F0571,2026-09-09,survey,Mobile Banking,3,Business,East,Support ticket has been open for days.
+F0572,2026-09-24,mobile_app,Savings Account,2,Premium,West,Fund transfer remains pending for hours.
+F0573,2026-04-20,survey,Credit Cards,1,Premium,East,OTP verification fails every time I try to log in.
+F0574,2026-09-29,support_ticket,Mobile Banking,1,Retail,East,Refund has not been credited yet.
+F0575,2026-05-05,mobile_app,Credit Cards,2,Premium,North,Transfer failed without any reason.
+F0576,2026-05-25,mobile_app,Credit Cards,2,Business,West,Transfer failed without any reason.
+F0577,2026-04-09,survey,Mobile Banking,2,Retail,South,Unable to add beneficiary for transfer.
+F0578,2026-10-01,mobile_app,Mobile Banking,4,Business,South,Great banking experience overall.
+F0579,2026-02-23,web,Loans,4,Business,South,Fund transfers are fast and seamless.
+F0580,2026-06-19,mobile_app,Mobile Banking,1,Retail,North,Account gets locked even with correct password.
+F0581,2026-10-13,mobile_app,Savings Account,1,Premium,West,Biometric login stopped working after the update.
+F0582,2026-07-27,support_ticket,Credit Cards,2,Retail,West,Transfer failed without any reason.
+F0583,2026-01-04,mobile_app,Mobile Banking,2,Business,North,Notifications are not arriving.
+F0584,2026-02-24,survey,Credit Cards,1,Business,North,Refund has not been credited yet.
+F0585,2026-07-15,support_ticket,Mobile Banking,1,Premium,South,UPI payment failed but money was deducted.
+F0586,2026-07-20,survey,Savings Account,2,Premium,East,Fund transfer remains pending for hours.
+F0587,2026-10-11,web,Mobile Banking,4,Retail,West,The app is easy to use and very reliable.
+F0588,2026-06-06,web,Credit Cards,2,Retail,West,Fund transfer remains pending for hours.
+F0589,2026-03-14,web,Savings Account,4,Business,East,Great banking experience overall.
+F0590,2026-10-18,mobile_app,Loans,1,Business,North,OTP verification fails every time I try to log in.
+F0591,2026-05-09,mobile_app,Savings Account,1,Business,West,Payment was debited twice for a single transaction.
+F0592,2026-03-07,web,Mobile Banking,5,Business,North,Fund transfers are fast and seamless.
+F0593,2026-09-06,support_ticket,Credit Cards,5,Business,South,Fund transfers are fast and seamless.
+F0594,2026-06-11,support_ticket,Savings Account,2,Retail,East,Application is extremely slow during peak hours.
+F0595,2026-08-12,survey,Credit Cards,1,Retail,East,Payment was debited twice for a single transaction.
+F0596,2026-08-17,survey,Credit Cards,5,Business,North,Fund transfers are fast and seamless.
+F0597,2026-02-11,survey,Savings Account,1,Business,South,Account gets locked even with correct password.
+F0598,2026-02-09,mobile_app,Mobile Banking,1,Business,North,Refund has not been credited yet.
+F0599,2026-07-27,web,Mobile Banking,5,Business,West,Great banking experience overall.
+F0600,2026-07-07,support_ticket,Savings Account,2,Business,East,The app crashes when I open transaction history.
+F0601,2026-09-19,mobile_app,Loans,1,Premium,North,Account gets locked even with correct password.
+F0602,2026-03-26,web,Loans,2,Retail,South,Notifications are not arriving.
+F0603,2026-03-16,support_ticket,Credit Cards,2,Retail,South,Notifications are not arriving.
+F0604,2026-02-02,survey,Credit Cards,3,Retail,North,Customer support takes too long to respond.
+F0605,2026-07-04,support_ticket,Loans,2,Premium,North,Notifications are not arriving.
+F0606,2026-06-15,mobile_app,Credit Cards,1,Business,East,Account gets locked even with correct password.
+F0607,2026-03-31,support_ticket,Loans,2,Premium,North,Notifications are not arriving.
+F0608,2026-04-25,support_ticket,Credit Cards,2,Premium,West,Unable to add beneficiary for transfer.
+F0609,2026-09-14,web,Loans,3,Retail,South,Customer support takes too long to respond.
+F0610,2026-05-24,web,Savings Account,1,Retail,South,Account gets locked even with correct password.
+F0611,2026-03-02,web,Loans,1,Premium,North,Refund has not been credited yet.
+F0612,2026-09-03,web,Savings Account,2,Business,West,Unable to add beneficiary for transfer.
+F0613,2026-03-07,web,Savings Account,1,Business,North,OTP verification fails every time I try to log in.
+F0614,2026-01-29,web,Credit Cards,4,Business,West,The app is easy to use and very reliable.
+F0615,2026-01-10,survey,Mobile Banking,2,Retail,West,Notifications are not arriving.
+F0616,2026-09-04,web,Savings Account,2,Premium,South,Application is extremely slow during peak hours.
+F0617,2026-09-19,survey,Savings Account,3,Business,East,Customer support takes too long to respond.
+F0618,2026-02-05,web,Loans,5,Retail,North,Great banking experience overall.
+F0619,2026-09-16,support_ticket,Savings Account,1,Business,North,Account gets locked even with correct password.
+F0620,2026-01-20,mobile_app,Mobile Banking,1,Premium,South,Account gets locked even with correct password.
+F0621,2026-01-01,support_ticket,Loans,5,Retail,West,Great banking experience overall.
+F0622,2026-07-15,survey,Mobile Banking,1,Premium,South,UPI payment failed but money was deducted.
+F0623,2026-02-12,survey,Loans,1,Premium,South,Payment was debited twice for a single transaction.
+F0624,2026-01-04,mobile_app,Mobile Banking,1,Premium,South,Account gets locked even with correct password.
+F0625,2026-07-29,survey,Mobile Banking,2,Retail,West,Application is extremely slow during peak hours.
+F0626,2026-05-14,support_ticket,Credit Cards,2,Business,East,Application is extremely slow during peak hours.
+F0627,2026-04-15,support_ticket,Loans,4,Premium,West,Fund transfers are fast and seamless.
+F0628,2026-10-23,survey,Loans,1,Business,South,UPI payment failed but money was deducted.
+F0629,2026-03-02,web,Loans,4,Retail,South,Great banking experience overall.
+F0630,2026-10-09,mobile_app,Savings Account,2,Premium,North,Unable to add beneficiary for transfer.
+F0631,2026-08-30,support_ticket,Mobile Banking,4,Premium,South,The app is easy to use and very reliable.
+F0632,2026-01-20,support_ticket,Loans,1,Business,East,Refund has not been credited yet.
+F0633,2026-01-30,web,Loans,2,Premium,North,Notifications are not arriving.
+F0634,2026-09-23,survey,Savings Account,1,Retail,South,Refund has not been credited yet.
+F0635,2026-01-19,survey,Savings Account,2,Business,North,Notifications are not arriving.
+F0636,2026-05-22,support_ticket,Credit Cards,5,Premium,South,The app is easy to use and very reliable.
+F0637,2026-02-05,mobile_app,Credit Cards,2,Business,East,Transfer failed without any reason.
+F0638,2026-04-26,web,Loans,1,Premium,North,UPI payment failed but money was deducted.
+F0639,2026-09-17,mobile_app,Mobile Banking,1,Business,East,UPI payment failed but money was deducted.
+F0640,2026-09-20,survey,Credit Cards,1,Business,West,Payment was debited twice for a single transaction.
+F0641,2026-09-05,web,Credit Cards,5,Business,West,Great banking experience overall.
+F0642,2026-09-04,mobile_app,Credit Cards,4,Premium,South,The app is easy to use and very reliable.
+F0643,2026-06-11,support_ticket,Credit Cards,2,Business,North,The app crashes when I open transaction history.
+F0644,2026-05-08,survey,Mobile Banking,2,Premium,East,Application is extremely slow during peak hours.
+F0645,2026-09-01,survey,Credit Cards,1,Retail,East,OTP verification fails every time I try to log in.
+F0646,2026-04-08,support_ticket,Savings Account,1,Retail,South,Account gets locked even with correct password.
+F0647,2026-04-28,web,Savings Account,5,Retail,North,The app is easy to use and very reliable.
+F0648,2026-09-10,mobile_app,Mobile Banking,1,Premium,East,OTP verification fails every time I try to log in.
+F0649,2026-10-22,survey,Loans,2,Retail,East,Application is extremely slow during peak hours.
+F0650,2026-03-07,mobile_app,Loans,2,Premium,North,Transfer failed without any reason.
+F0651,2026-03-31,support_ticket,Mobile Banking,2,Business,West,Unable to add beneficiary for transfer.
+F0652,2026-01-07,web,Loans,1,Business,North,Payment was debited twice for a single transaction.
+F0653,2026-05-13,web,Credit Cards,1,Retail,East,Refund has not been credited yet.
+F0654,2026-06-25,survey,Savings Account,2,Premium,West,Transfer failed without any reason.
+F0655,2026-07-10,survey,Loans,1,Premium,West,Refund has not been credited yet.
+F0656,2026-10-22,web,Mobile Banking,1,Business,East,OTP verification fails every time I try to log in.
+F0657,2026-08-10,support_ticket,Savings Account,4,Business,South,Great banking experience overall.
+F0658,2026-04-01,support_ticket,Loans,2,Retail,East,Fund transfer remains pending for hours.
+F0659,2026-05-09,mobile_app,Loans,3,Retail,South,Support ticket has been open for days.
+F0660,2026-09-01,mobile_app,Loans,1,Business,East,Biometric login stopped working after the update.
+F0661,2026-10-14,survey,Credit Cards,1,Retail,West,UPI payment failed but money was deducted.
+F0662,2026-04-12,web,Credit Cards,1,Premium,East,Account gets locked even with correct password.
+F0663,2026-08-17,mobile_app,Loans,2,Business,East,Application is extremely slow during peak hours.
+F0664,2026-03-27,survey,Loans,2,Business,West,Fund transfer remains pending for hours.
+F0665,2026-02-10,web,Credit Cards,4,Premium,East,The app is easy to use and very reliable.
+F0666,2026-05-17,support_ticket,Credit Cards,2,Premium,East,Notifications are not arriving.
+F0667,2026-07-31,web,Savings Account,3,Retail,South,Support ticket has been open for days.
+F0668,2026-02-10,web,Savings Account,3,Premium,North,Support ticket has been open for days.
+F0669,2026-10-08,mobile_app,Mobile Banking,1,Premium,North,Biometric login stopped working after the update.
+F0670,2026-03-21,mobile_app,Loans,1,Premium,South,Account gets locked even with correct password.
+F0671,2026-08-15,web,Savings Account,1,Business,South,UPI payment failed but money was deducted.
+F0672,2026-07-02,survey,Loans,1,Premium,East,Account gets locked even with correct password.
+F0673,2026-10-04,web,Loans,2,Business,West,Fund transfer remains pending for hours.
+F0674,2026-10-01,survey,Credit Cards,2,Premium,South,Transfer failed without any reason.
+F0675,2026-06-07,survey,Loans,5,Retail,East,Fund transfers are fast and seamless.
+F0676,2026-03-11,survey,Credit Cards,1,Premium,North,Account gets locked even with correct password.
+F0677,2026-09-02,survey,Mobile Banking,2,Premium,East,Application is extremely slow during peak hours.
+F0678,2026-10-08,survey,Savings Account,2,Premium,West,The app crashes when I open transaction history.
+F0679,2026-07-19,support_ticket,Savings Account,2,Premium,North,Fund transfer remains pending for hours.
+F0680,2026-09-22,survey,Credit Cards,2,Business,East,Fund transfer remains pending for hours.
+F0681,2026-04-04,web,Credit Cards,2,Retail,West,Fund transfer remains pending for hours.
+F0682,2026-09-09,web,Credit Cards,2,Retail,South,Application is extremely slow during peak hours.
+F0683,2026-01-12,web,Mobile Banking,1,Premium,East,Account gets locked even with correct password.
+F0684,2026-01-05,web,Mobile Banking,1,Retail,North,Biometric login stopped working after the update.
+F0685,2026-08-04,survey,Loans,2,Premium,West,Unable to add beneficiary for transfer.
+F0686,2026-06-19,mobile_app,Savings Account,2,Retail,East,The app crashes when I open transaction history.
+F0687,2026-10-06,support_ticket,Savings Account,3,Retail,East,Customer support takes too long to respond.
+F0688,2026-03-04,web,Loans,5,Retail,North,The app is easy to use and very reliable.
+F0689,2026-02-18,web,Loans,1,Premium,East,Account gets locked even with correct password.
+F0690,2026-01-22,mobile_app,Credit Cards,5,Business,East,The app is easy to use and very reliable.
+F0691,2026-04-22,mobile_app,Savings Account,1,Business,West,OTP verification fails every time I try to log in.
+F0692,2026-05-22,mobile_app,Loans,1,Retail,North,Payment was debited twice for a single transaction.
+F0693,2026-09-01,web,Credit Cards,4,Retail,South,Great banking experience overall.
+F0694,2026-06-23,mobile_app,Mobile Banking,2,Premium,South,Transfer failed without any reason.
+F0695,2026-03-06,support_ticket,Savings Account,2,Premium,East,The app crashes when I open transaction history.
+F0696,2026-04-09,mobile_app,Loans,5,Business,South,Fund transfers are fast and seamless.
+F0697,2026-09-06,support_ticket,Credit Cards,1,Business,West,Payment was debited twice for a single transaction.
+F0698,2026-10-06,survey,Credit Cards,1,Business,West,OTP verification fails every time I try to log in.
+F0699,2026-10-11,web,Mobile Banking,1,Business,South,Refund has not been credited yet.
+F0700,2026-10-05,survey,Loans,2,Retail,West,Unable to add beneficiary for transfer.
+F0701,2026-07-06,web,Credit Cards,3,Business,North,Customer support takes too long to respond.
+F0702,2026-07-18,web,Loans,2,Business,South,Notifications are not arriving.
+F0703,2026-07-29,survey,Mobile Banking,2,Retail,North,Application is extremely slow during peak hours.
+F0704,2026-04-02,mobile_app,Savings Account,1,Retail,West,OTP verification fails every time I try to log in.
+F0705,2026-10-20,support_ticket,Loans,1,Business,East,OTP verification fails every time I try to log in.
+F0706,2026-02-06,mobile_app,Savings Account,1,Business,West,OTP verification fails every time I try to log in.
+F0707,2026-08-28,mobile_app,Credit Cards,5,Premium,North,The app is easy to use and very reliable.
+F0708,2026-09-28,mobile_app,Mobile Banking,5,Retail,South,Fund transfers are fast and seamless.
+F0709,2026-02-21,web,Loans,4,Retail,South,The app is easy to use and very reliable.
+F0710,2026-10-13,support_ticket,Mobile Banking,2,Business,East,The app crashes when I open transaction history.
+F0711,2026-08-07,mobile_app,Savings Account,2,Retail,West,Notifications are not arriving.
+F0712,2026-03-22,support_ticket,Credit Cards,2,Premium,East,Transfer failed without any reason.
+F0713,2026-08-09,survey,Savings Account,4,Premium,East,Fund transfers are fast and seamless.
+F0714,2026-08-18,support_ticket,Mobile Banking,1,Business,North,UPI payment failed but money was deducted.
+F0715,2026-01-09,web,Credit Cards,4,Premium,South,Great banking experience overall.
+F0716,2026-01-12,survey,Savings Account,1,Retail,North,UPI payment failed but money was deducted.
+F0717,2026-03-12,survey,Credit Cards,2,Business,South,Fund transfer remains pending for hours.
+F0718,2026-02-17,support_ticket,Savings Account,1,Business,North,UPI payment failed but money was deducted.
+F0719,2026-03-30,support_ticket,Mobile Banking,3,Business,East,Support ticket has been open for days.
+F0720,2026-07-15,mobile_app,Mobile Banking,1,Premium,East,Account gets locked even with correct password.
+F0721,2026-08-02,mobile_app,Savings Account,4,Business,West,Fund transfers are fast and seamless.
+F0722,2026-01-22,survey,Savings Account,1,Premium,South,Account gets locked even with correct password.
+F0723,2026-07-21,support_ticket,Mobile Banking,1,Retail,West,Account gets locked even with correct password.
+F0724,2026-03-17,web,Credit Cards,1,Retail,West,UPI payment failed but money was deducted.
+F0725,2026-10-08,support_ticket,Credit Cards,2,Retail,West,The app crashes when I open transaction history.
+F0726,2026-03-08,web,Loans,2,Business,South,Transfer failed without any reason.
+F0727,2026-10-20,web,Savings Account,2,Retail,North,Transfer failed without any reason.
+F0728,2026-06-15,mobile_app,Mobile Banking,1,Business,West,UPI payment failed but money was deducted.
+F0729,2026-04-08,survey,Credit Cards,2,Business,North,Unable to add beneficiary for transfer.
+F0730,2026-06-29,support_ticket,Savings Account,3,Premium,North,Customer support takes too long to respond.
+F0731,2026-04-13,survey,Savings Account,4,Retail,North,The app is easy to use and very reliable.
+F0732,2026-03-17,survey,Mobile Banking,1,Premium,North,Refund has not been credited yet.
+F0733,2026-01-12,survey,Savings Account,1,Business,South,UPI payment failed but money was deducted.
+F0734,2026-05-13,support_ticket,Savings Account,1,Business,North,Refund has not been credited yet.
+F0735,2026-09-27,mobile_app,Credit Cards,1,Retail,North,Refund has not been credited yet.
+F0736,2026-05-19,mobile_app,Loans,1,Business,North,Refund has not been credited yet.
+F0737,2026-05-19,survey,Mobile Banking,1,Retail,East,Account gets locked even with correct password.
+F0738,2026-07-17,web,Loans,4,Premium,West,Great banking experience overall.
+F0739,2026-02-15,web,Savings Account,5,Business,North,Great banking experience overall.
+F0740,2026-06-06,survey,Loans,1,Premium,South,Account gets locked even with correct password.
+F0741,2026-06-30,survey,Credit Cards,1,Retail,East,Account gets locked even with correct password.
+F0742,2026-05-12,support_ticket,Mobile Banking,5,Retail,South,Great banking experience overall.
+F0743,2026-03-12,mobile_app,Loans,1,Business,South,UPI payment failed but money was deducted.
+F0744,2026-03-20,support_ticket,Credit Cards,2,Business,East,Transfer failed without any reason.
+F0745,2026-04-16,web,Savings Account,2,Retail,East,Fund transfer remains pending for hours.
+F0746,2026-03-11,support_ticket,Savings Account,2,Business,South,Notifications are not arriving.
+F0747,2026-09-30,mobile_app,Savings Account,1,Premium,South,Refund has not been credited yet.
+F0748,2026-07-31,support_ticket,Credit Cards,3,Premium,East,Support ticket has been open for days.
+F0749,2026-02-24,web,Savings Account,1,Retail,East,OTP verification fails every time I try to log in.
+F0750,2026-04-29,web,Savings Account,2,Business,North,Notifications are not arriving.
+F0751,2026-09-02,web,Loans,1,Business,East,Refund has not been credited yet.
+F0752,2026-09-09,support_ticket,Savings Account,1,Retail,South,Biometric login stopped working after the update.
+F0753,2026-01-08,survey,Loans,1,Retail,South,UPI payment failed but money was deducted.
+F0754,2026-04-01,support_ticket,Loans,3,Business,East,Customer support takes too long to respond.
+F0755,2026-08-07,support_ticket,Mobile Banking,5,Business,East,The app is easy to use and very reliable.
+F0756,2026-10-20,mobile_app,Mobile Banking,2,Premium,West,Transfer failed without any reason.
+F0757,2026-05-06,support_ticket,Mobile Banking,5,Business,North,The app is easy to use and very reliable.
+F0758,2026-07-23,survey,Credit Cards,1,Premium,South,Biometric login stopped working after the update.
+F0759,2026-01-28,web,Loans,2,Business,West,Transfer failed without any reason.
+F0760,2026-02-27,web,Savings Account,1,Premium,West,Account gets locked even with correct password.
+F0761,2026-04-02,support_ticket,Savings Account,1,Premium,North,Payment was debited twice for a single transaction.
+F0762,2026-03-25,mobile_app,Mobile Banking,1,Retail,West,Refund has not been credited yet.
+F0763,2026-09-26,support_ticket,Savings Account,2,Premium,West,The app crashes when I open transaction history.
+F0764,2026-06-21,web,Savings Account,1,Retail,South,OTP verification fails every time I try to log in.
+F0765,2026-08-03,survey,Credit Cards,3,Business,West,Customer support takes too long to respond.
+F0766,2026-03-02,web,Savings Account,1,Retail,East,Payment was debited twice for a single transaction.
+F0767,2026-09-13,mobile_app,Loans,1,Retail,South,Biometric login stopped working after the update.
+F0768,2026-08-21,support_ticket,Loans,2,Retail,North,Application is extremely slow during peak hours.
+F0769,2026-05-23,web,Mobile Banking,1,Retail,South,Refund has not been credited yet.
+F0770,2026-01-19,web,Mobile Banking,1,Business,East,Biometric login stopped working after the update.
+F0771,2026-01-26,mobile_app,Loans,1,Retail,South,Payment was debited twice for a single transaction.
+F0772,2026-10-21,web,Loans,2,Business,East,Notifications are not arriving.
+F0773,2026-06-03,survey,Credit Cards,5,Retail,West,The app is easy to use and very reliable.
+F0774,2026-05-30,support_ticket,Savings Account,4,Business,East,The app is easy to use and very reliable.
+F0775,2026-09-26,web,Savings Account,1,Business,North,UPI payment failed but money was deducted.
+F0776,2026-09-28,mobile_app,Loans,1,Business,East,Account gets locked even with correct password.
+F0777,2026-05-13,survey,Savings Account,2,Business,West,Unable to add beneficiary for transfer.
+F0778,2026-09-12,support_ticket,Savings Account,2,Business,South,Transfer failed without any reason.
+F0779,2026-01-01,mobile_app,Mobile Banking,2,Premium,North,The app crashes when I open transaction history.
+F0780,2026-08-01,support_ticket,Mobile Banking,3,Premium,East,Customer support takes too long to respond.
+F0781,2026-04-19,mobile_app,Savings Account,2,Business,East,Notifications are not arriving.
+F0782,2026-06-07,survey,Credit Cards,1,Retail,North,Payment was debited twice for a single transaction.
+F0783,2026-07-22,mobile_app,Savings Account,2,Retail,East,Application is extremely slow during peak hours.
+F0784,2026-09-03,support_ticket,Mobile Banking,4,Premium,South,Great banking experience overall.
+F0785,2026-06-21,support_ticket,Loans,2,Business,North,Notifications are not arriving.
+F0786,2026-10-17,survey,Mobile Banking,4,Business,East,Fund transfers are fast and seamless.
+F0787,2026-02-03,web,Credit Cards,3,Retail,East,Support ticket has been open for days.
+F0788,2026-10-01,web,Loans,4,Business,North,Great banking experience overall.
+F0789,2026-06-11,mobile_app,Credit Cards,5,Retail,West,Fund transfers are fast and seamless.
+F0790,2026-08-20,survey,Savings Account,5,Retail,North,Fund transfers are fast and seamless.
+F0791,2026-04-14,mobile_app,Loans,1,Business,North,Payment was debited twice for a single transaction.
+F0792,2026-04-08,survey,Loans,3,Business,East,Customer support takes too long to respond.
+F0793,2026-02-20,web,Savings Account,3,Business,North,Customer support takes too long to respond.
+F0794,2026-09-25,mobile_app,Mobile Banking,2,Premium,North,Transfer failed without any reason.
+F0795,2026-02-14,survey,Loans,2,Retail,North,Notifications are not arriving.
+F0796,2026-06-09,mobile_app,Credit Cards,2,Business,South,Transfer failed without any reason.
+F0797,2026-05-27,survey,Credit Cards,1,Premium,North,Payment was debited twice for a single transaction.
+F0798,2026-05-21,mobile_app,Mobile Banking,1,Business,North,Payment was debited twice for a single transaction.
+F0799,2026-10-09,survey,Credit Cards,1,Retail,East,UPI payment failed but money was deducted.
+F0800,2026-02-06,survey,Credit Cards,2,Business,West,The app crashes when I open transaction history.
+F0801,2026-08-30,mobile_app,Mobile Banking,1,Premium,North,OTP verification fails every time I try to log in.
+F0802,2026-04-02,support_ticket,Credit Cards,1,Premium,East,Biometric login stopped working after the update.
+F0803,2026-10-01,mobile_app,Loans,4,Retail,West,Great banking experience overall.
+F0804,2026-08-27,support_ticket,Savings Account,1,Retail,South,Biometric login stopped working after the update.
+F0805,2026-05-13,survey,Loans,4,Business,East,Great banking experience overall.
+F0806,2026-08-21,support_ticket,Mobile Banking,3,Retail,West,Support ticket has been open for days.
+F0807,2026-08-25,web,Credit Cards,1,Premium,South,Biometric login stopped working after the update.
+F0808,2026-02-24,survey,Mobile Banking,2,Premium,West,Unable to add beneficiary for transfer.
+F0809,2026-05-03,web,Savings Account,2,Premium,West,Unable to add beneficiary for transfer.
+F0810,2026-08-09,support_ticket,Credit Cards,1,Business,South,OTP verification fails every time I try to log in.
+F0811,2026-02-09,support_ticket,Mobile Banking,1,Business,West,Account gets locked even with correct password.
+F0812,2026-08-16,web,Credit Cards,1,Premium,North,Payment was debited twice for a single transaction.
+F0813,2026-07-14,survey,Loans,2,Business,North,Notifications are not arriving.
+F0814,2026-10-25,mobile_app,Savings Account,1,Business,South,OTP verification fails every time I try to log in.
+F0815,2026-07-19,support_ticket,Savings Account,2,Retail,East,Unable to add beneficiary for transfer.
+F0816,2026-06-05,support_ticket,Credit Cards,1,Retail,North,Refund has not been credited yet.
+F0817,2026-07-26,web,Credit Cards,2,Retail,East,Notifications are not arriving.
+F0818,2026-01-01,survey,Mobile Banking,5,Retail,South,The app is easy to use and very reliable.
+F0819,2026-07-21,survey,Loans,2,Premium,West,Transfer failed without any reason.
+F0820,2026-03-30,support_ticket,Savings Account,2,Retail,West,Fund transfer remains pending for hours.
+F0821,2026-08-02,web,Credit Cards,4,Retail,North,Fund transfers are fast and seamless.
+F0822,2026-03-15,support_ticket,Loans,1,Retail,North,OTP verification fails every time I try to log in.
+F0823,2026-08-22,support_ticket,Savings Account,1,Premium,West,Biometric login stopped working after the update.
+F0824,2026-07-16,survey,Savings Account,2,Retail,West,Unable to add beneficiary for transfer.
+F0825,2026-09-13,web,Credit Cards,2,Premium,East,Notifications are not arriving.
+F0826,2026-10-18,support_ticket,Credit Cards,1,Retail,West,OTP verification fails every time I try to log in.
+F0827,2026-03-14,survey,Loans,4,Business,North,The app is easy to use and very reliable.
+F0828,2026-02-09,survey,Mobile Banking,1,Premium,North,Refund has not been credited yet.
+F0829,2026-08-29,survey,Loans,2,Premium,East,Transfer failed without any reason.
+F0830,2026-06-05,survey,Mobile Banking,1,Business,West,Payment was debited twice for a single transaction.
+F0831,2026-01-27,survey,Mobile Banking,2,Premium,West,Notifications are not arriving.
+F0832,2026-02-09,survey,Credit Cards,1,Retail,East,Account gets locked even with correct password.
+F0833,2026-01-08,mobile_app,Savings Account,1,Business,South,UPI payment failed but money was deducted.
+F0834,2026-03-31,survey,Savings Account,2,Premium,South,Application is extremely slow during peak hours.
+F0835,2026-06-25,mobile_app,Savings Account,3,Business,South,Customer support takes too long to respond.
+F0836,2026-07-16,web,Loans,4,Retail,East,Fund transfers are fast and seamless.
+F0837,2026-03-01,mobile_app,Savings Account,1,Premium,West,Biometric login stopped working after the update.
+F0838,2026-09-30,web,Loans,2,Business,West,Unable to add beneficiary for transfer.
+F0839,2026-09-29,support_ticket,Mobile Banking,2,Premium,West,Fund transfer remains pending for hours.
+F0840,2026-09-29,mobile_app,Mobile Banking,2,Business,East,Unable to add beneficiary for transfer.
+F0841,2026-05-20,survey,Credit Cards,5,Retail,East,Fund transfers are fast and seamless.
+F0842,2026-08-25,web,Savings Account,2,Business,East,Application is extremely slow during peak hours.
+F0843,2026-06-10,mobile_app,Mobile Banking,2,Retail,North,The app crashes when I open transaction history.
+F0844,2026-02-23,support_ticket,Credit Cards,2,Retail,East,Transfer failed without any reason.
+F0845,2026-01-13,mobile_app,Mobile Banking,1,Business,South,Payment was debited twice for a single transaction.
+F0846,2026-03-04,mobile_app,Mobile Banking,4,Premium,South,Great banking experience overall.
+F0847,2026-04-05,survey,Credit Cards,5,Business,North,Great banking experience overall.
+F0848,2026-08-07,survey,Credit Cards,2,Retail,North,Application is extremely slow during peak hours.
+F0849,2026-07-15,support_ticket,Credit Cards,1,Retail,East,Payment was debited twice for a single transaction.
+F0850,2026-04-02,support_ticket,Mobile Banking,5,Retail,West,Fund transfers are fast and seamless.
+F0851,2026-02-25,web,Loans,1,Retail,North,Biometric login stopped working after the update.
+F0852,2026-05-13,mobile_app,Mobile Banking,4,Retail,East,Great banking experience overall.
+F0853,2026-09-12,web,Mobile Banking,3,Retail,West,Customer support takes too long to respond.
+F0854,2026-06-18,support_ticket,Mobile Banking,1,Business,West,Refund has not been credited yet.
+F0855,2026-02-05,web,Mobile Banking,2,Premium,West,Unable to add beneficiary for transfer.
+F0856,2026-07-03,survey,Credit Cards,1,Premium,North,Account gets locked even with correct password.
+F0857,2026-02-16,survey,Credit Cards,2,Retail,West,Notifications are not arriving.
+F0858,2026-04-14,web,Mobile Banking,3,Premium,South,Support ticket has been open for days.
+F0859,2026-02-24,survey,Loans,1,Retail,West,UPI payment failed but money was deducted.
+F0860,2026-01-19,web,Mobile Banking,3,Business,South,Customer support takes too long to respond.
+F0861,2026-10-04,survey,Loans,2,Business,West,Fund transfer remains pending for hours.
+F0862,2026-01-19,survey,Mobile Banking,5,Business,North,The app is easy to use and very reliable.
+F0863,2026-09-25,support_ticket,Savings Account,2,Business,South,Fund transfer remains pending for hours.
+F0864,2026-03-14,support_ticket,Mobile Banking,5,Business,North,The app is easy to use and very reliable.
+F0865,2026-03-08,mobile_app,Savings Account,1,Business,North,Refund has not been credited yet.
+F0866,2026-08-22,web,Mobile Banking,4,Retail,West,The app is easy to use and very reliable.
+F0867,2026-04-23,mobile_app,Savings Account,2,Premium,East,Notifications are not arriving.
+F0868,2026-07-25,survey,Mobile Banking,4,Premium,South,Great banking experience overall.
+F0869,2026-06-21,mobile_app,Mobile Banking,3,Premium,South,Customer support takes too long to respond.
+F0870,2026-07-09,web,Loans,3,Retail,North,Customer support takes too long to respond.
+F0871,2026-07-12,web,Mobile Banking,1,Premium,North,Account gets locked even with correct password.
+F0872,2026-02-15,survey,Loans,1,Business,West,OTP verification fails every time I try to log in.
+F0873,2026-03-15,survey,Loans,2,Premium,South,The app crashes when I open transaction history.
+F0874,2026-01-20,web,Loans,4,Business,East,Great banking experience overall.
+F0875,2026-10-13,web,Savings Account,1,Retail,North,Payment was debited twice for a single transaction.
+F0876,2026-09-17,web,Loans,2,Business,South,Notifications are not arriving.
+F0877,2026-02-27,web,Loans,1,Premium,South,Payment was debited twice for a single transaction.
+F0878,2026-01-28,survey,Credit Cards,1,Retail,West,OTP verification fails every time I try to log in.
+F0879,2026-08-21,mobile_app,Mobile Banking,1,Business,North,Refund has not been credited yet.
+F0880,2026-03-22,mobile_app,Loans,4,Retail,South,The app is easy to use and very reliable.
+F0881,2026-08-03,web,Credit Cards,3,Retail,North,Support ticket has been open for days.
+F0882,2026-05-02,support_ticket,Savings Account,1,Premium,South,Payment was debited twice for a single transaction.
+F0883,2026-09-06,mobile_app,Loans,1,Retail,South,Account gets locked even with correct password.
+F0884,2026-04-02,support_ticket,Credit Cards,4,Premium,South,Fund transfers are fast and seamless.
+F0885,2026-04-14,survey,Savings Account,2,Retail,North,Application is extremely slow during peak hours.
+F0886,2026-08-27,support_ticket,Loans,1,Retail,East,Payment was debited twice for a single transaction.
+F0887,2026-03-22,web,Savings Account,1,Retail,West,UPI payment failed but money was deducted.
+F0888,2026-04-21,support_ticket,Loans,5,Retail,West,Fund transfers are fast and seamless.
+F0889,2026-05-07,survey,Loans,3,Business,South,Customer support takes too long to respond.
+F0890,2026-03-18,mobile_app,Loans,4,Retail,West,Great banking experience overall.
+F0891,2026-08-06,support_ticket,Loans,3,Business,North,Customer support takes too long to respond.
+F0892,2026-02-12,mobile_app,Loans,2,Retail,South,Fund transfer remains pending for hours.
+F0893,2026-02-16,mobile_app,Loans,1,Business,East,Payment was debited twice for a single transaction.
+F0894,2026-10-20,mobile_app,Loans,1,Premium,South,Biometric login stopped working after the update.
+F0895,2026-04-05,survey,Loans,4,Business,North,Fund transfers are fast and seamless.
+F0896,2026-06-20,mobile_app,Credit Cards,2,Premium,East,Transfer failed without any reason.
+F0897,2026-10-05,web,Mobile Banking,2,Business,East,Notifications are not arriving.
+F0898,2026-09-21,survey,Mobile Banking,3,Retail,West,Customer support takes too long to respond.
+F0899,2026-01-21,survey,Credit Cards,1,Retail,North,Refund has not been credited yet.
+F0900,2026-03-12,survey,Savings Account,2,Business,North,The app crashes when I open transaction history.
+F0901,2026-10-25,web,Savings Account,2,Premium,East,Notifications are not arriving.
+F0902,2026-08-05,survey,Mobile Banking,4,Premium,East,Great banking experience overall.
+F0903,2026-09-27,mobile_app,Loans,2,Business,East,Transfer failed without any reason.
+F0904,2026-02-03,web,Loans,2,Retail,North,Unable to add beneficiary for transfer.
+F0905,2026-05-28,mobile_app,Mobile Banking,2,Retail,East,Fund transfer remains pending for hours.
+F0906,2026-09-12,web,Savings Account,1,Business,North,OTP verification fails every time I try to log in.
+F0907,2026-10-05,web,Loans,1,Premium,West,Refund has not been credited yet.
+F0908,2026-01-11,survey,Savings Account,2,Retail,North,Transfer failed without any reason.
+F0909,2026-09-24,survey,Loans,5,Business,East,The app is easy to use and very reliable.
+F0910,2026-09-29,support_ticket,Loans,2,Premium,South,Transfer failed without any reason.
+F0911,2026-03-29,survey,Savings Account,5,Premium,East,Fund transfers are fast and seamless.
+F0912,2026-03-17,survey,Credit Cards,3,Premium,South,Customer support takes too long to respond.
+F0913,2026-10-02,survey,Savings Account,2,Retail,South,The app crashes when I open transaction history.
+F0914,2026-01-22,survey,Savings Account,1,Premium,East,OTP verification fails every time I try to log in.
+F0915,2026-10-15,mobile_app,Credit Cards,1,Premium,South,Payment was debited twice for a single transaction.
+F0916,2026-03-25,survey,Mobile Banking,1,Retail,West,Refund has not been credited yet.
+F0917,2026-08-23,survey,Savings Account,4,Business,East,The app is easy to use and very reliable.
+F0918,2026-08-31,survey,Savings Account,2,Business,West,Application is extremely slow during peak hours.
+F0919,2026-09-03,mobile_app,Savings Account,1,Business,North,Payment was debited twice for a single transaction.
+F0920,2026-04-23,support_ticket,Credit Cards,1,Retail,East,UPI payment failed but money was deducted.
+F0921,2026-04-10,web,Credit Cards,1,Retail,North,Account gets locked even with correct password.
+F0922,2026-02-14,support_ticket,Savings Account,1,Premium,East,Biometric login stopped working after the update.
+F0923,2026-01-29,survey,Loans,2,Retail,West,Notifications are not arriving.
+F0924,2026-01-07,survey,Credit Cards,1,Premium,East,UPI payment failed but money was deducted.
+F0925,2026-02-14,web,Loans,5,Premium,East,Great banking experience overall.
+F0926,2026-08-06,support_ticket,Savings Account,1,Business,North,Account gets locked even with correct password.
+F0927,2026-09-01,survey,Mobile Banking,1,Business,West,Biometric login stopped working after the update.
+F0928,2026-05-20,support_ticket,Savings Account,1,Business,West,Biometric login stopped working after the update.
+F0929,2026-04-13,web,Loans,2,Premium,West,The app crashes when I open transaction history.
+F0930,2026-10-27,survey,Loans,1,Business,West,Biometric login stopped working after the update.
+F0931,2026-03-20,survey,Credit Cards,1,Business,West,Payment was debited twice for a single transaction.
+F0932,2026-05-28,support_ticket,Savings Account,1,Premium,South,Account gets locked even with correct password.
+F0933,2026-09-10,mobile_app,Credit Cards,1,Business,West,Biometric login stopped working after the update.
+F0934,2026-09-01,mobile_app,Credit Cards,2,Business,North,Application is extremely slow during peak hours.
+F0935,2026-10-25,mobile_app,Savings Account,5,Premium,South,The app is easy to use and very reliable.
+F0936,2026-05-20,survey,Loans,1,Business,East,Payment was debited twice for a single transaction.
+F0937,2026-09-29,mobile_app,Savings Account,1,Business,South,Biometric login stopped working after the update.
+F0938,2026-10-06,survey,Credit Cards,3,Business,East,Customer support takes too long to respond.
+F0939,2026-07-05,mobile_app,Credit Cards,1,Retail,North,Refund has not been credited yet.
+F0940,2026-07-10,support_ticket,Loans,1,Premium,South,Biometric login stopped working after the update.
+F0941,2026-09-15,web,Savings Account,1,Business,North,OTP verification fails every time I try to log in.
+F0942,2026-03-01,web,Mobile Banking,2,Premium,East,Fund transfer remains pending for hours.
+F0943,2026-03-13,support_ticket,Credit Cards,1,Retail,East,UPI payment failed but money was deducted.
+F0944,2026-04-24,web,Savings Account,1,Business,South,OTP verification fails every time I try to log in.
+F0945,2026-03-08,mobile_app,Loans,1,Business,North,Payment was debited twice for a single transaction.
+F0946,2026-08-09,mobile_app,Savings Account,1,Retail,North,Biometric login stopped working after the update.
+F0947,2026-08-29,mobile_app,Credit Cards,3,Retail,North,Customer support takes too long to respond.
+F0948,2026-02-19,mobile_app,Savings Account,1,Business,South,Payment was debited twice for a single transaction.
+F0949,2026-01-15,mobile_app,Savings Account,1,Business,East,Biometric login stopped working after the update.
+F0950,2026-06-30,web,Savings Account,4,Retail,North,Fund transfers are fast and seamless.
+F0951,2026-04-09,survey,Savings Account,2,Business,North,Transfer failed without any reason.
+F0952,2026-04-20,support_ticket,Credit Cards,4,Premium,North,The app is easy to use and very reliable.
+F0953,2026-07-14,support_ticket,Savings Account,1,Business,South,Biometric login stopped working after the update.
+F0954,2026-03-05,support_ticket,Mobile Banking,2,Business,South,Unable to add beneficiary for transfer.
+F0955,2026-05-28,mobile_app,Mobile Banking,2,Premium,West,Unable to add beneficiary for transfer.
+F0956,2026-08-22,survey,Loans,1,Retail,West,Biometric login stopped working after the update.
+F0957,2026-04-07,mobile_app,Loans,1,Business,East,UPI payment failed but money was deducted.
+F0958,2026-09-09,mobile_app,Loans,1,Premium,North,Account gets locked even with correct password.
+F0959,2026-07-25,mobile_app,Savings Account,1,Retail,East,Biometric login stopped working after the update.
+F0960,2026-04-13,support_ticket,Mobile Banking,4,Premium,West,Fund transfers are fast and seamless.
+F0961,2026-10-25,survey,Loans,1,Premium,West,Refund has not been credited yet.
+F0962,2026-09-06,survey,Savings Account,2,Premium,North,Application is extremely slow during peak hours.
+F0963,2026-09-12,web,Savings Account,1,Retail,North,Biometric login stopped working after the update.
+F0964,2026-09-13,mobile_app,Savings Account,3,Premium,East,Customer support takes too long to respond.
+F0965,2026-02-19,mobile_app,Loans,1,Premium,South,Account gets locked even with correct password.
+F0966,2026-09-09,survey,Credit Cards,1,Business,North,UPI payment failed but money was deducted.
+F0967,2026-08-09,mobile_app,Loans,5,Premium,West,The app is easy to use and very reliable.
+F0968,2026-01-17,web,Credit Cards,2,Business,South,Fund transfer remains pending for hours.
+F0969,2026-06-09,support_ticket,Loans,2,Retail,West,Fund transfer remains pending for hours.
+F0970,2026-10-04,support_ticket,Loans,2,Business,South,Notifications are not arriving.
+F0971,2026-05-15,support_ticket,Loans,2,Business,East,Unable to add beneficiary for transfer.
+F0972,2026-06-14,mobile_app,Mobile Banking,3,Business,North,Support ticket has been open for days.
+F0973,2026-06-28,mobile_app,Credit Cards,1,Premium,North,Biometric login stopped working after the update.
+F0974,2026-07-30,survey,Mobile Banking,2,Business,South,Unable to add beneficiary for transfer.
+F0975,2026-06-09,mobile_app,Mobile Banking,1,Premium,North,Refund has not been credited yet.
+F0976,2026-10-03,survey,Mobile Banking,1,Premium,West,Payment was debited twice for a single transaction.
+F0977,2026-05-17,mobile_app,Loans,2,Business,North,Application is extremely slow during peak hours.
+F0978,2026-10-20,support_ticket,Credit Cards,4,Premium,North,Fund transfers are fast and seamless.
+F0979,2026-06-22,support_ticket,Credit Cards,2,Retail,East,The app crashes when I open transaction history.
+F0980,2026-04-14,support_ticket,Mobile Banking,1,Business,South,UPI payment failed but money was deducted.
+F0981,2026-06-02,support_ticket,Savings Account,1,Business,North,Payment was debited twice for a single transaction.
+F0982,2026-02-18,survey,Credit Cards,2,Retail,West,Notifications are not arriving.
+F0983,2026-02-09,survey,Credit Cards,2,Premium,East,Unable to add beneficiary for transfer.
+F0984,2026-05-09,support_ticket,Savings Account,1,Retail,South,UPI payment failed but money was deducted.
+F0985,2026-08-28,survey,Loans,2,Business,North,The app crashes when I open transaction history.
+F0986,2026-08-25,web,Savings Account,2,Retail,East,Unable to add beneficiary for transfer.
+F0987,2026-06-13,mobile_app,Savings Account,5,Premium,East,Fund transfers are fast and seamless.
+F0988,2026-05-01,support_ticket,Savings Account,2,Retail,South,Application is extremely slow during peak hours.
+F0989,2026-06-08,support_ticket,Loans,1,Business,West,OTP verification fails every time I try to log in.
+F0990,2026-04-14,web,Credit Cards,2,Retail,North,Fund transfer remains pending for hours.
+F0991,2026-10-09,web,Mobile Banking,1,Business,West,UPI payment failed but money was deducted.
+F0992,2026-02-12,survey,Credit Cards,3,Retail,West,Customer support takes too long to respond.
+F0993,2026-02-16,support_ticket,Savings Account,4,Retail,North,Great banking experience overall.
+F0994,2026-09-26,survey,Loans,2,Retail,South,Transfer failed without any reason.
+F0995,2026-06-18,support_ticket,Savings Account,2,Premium,South,Application is extremely slow during peak hours.
+F0996,2026-04-20,survey,Loans,1,Premium,East,OTP verification fails every time I try to log in.
+F0997,2026-09-09,survey,Mobile Banking,5,Business,West,The app is easy to use and very reliable.
+F0998,2026-05-23,web,Credit Cards,2,Premium,East,Fund transfer remains pending for hours.
+F0999,2026-01-18,mobile_app,Savings Account,5,Business,West,The app is easy to use and very reliable.
+F1000,2026-07-05,mobile_app,Savings Account,1,Premium,West,Refund has not been credited yet.
