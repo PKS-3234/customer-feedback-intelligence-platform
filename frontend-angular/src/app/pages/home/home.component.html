@@ -1,0 +1,41 @@
+<div class="home-container">
+  <header class="hero-section">
+    <div class="badge">Phase 1 Foundation Skeleton</div>
+    <h1 class="main-title">{{ title }}</h1>
+    <p class="subtitle">{{ subtitle }}</p>
+  </header>
+
+  <section class="overview-card">
+    <h2>System Architecture & Foundation Status</h2>
+    <div class="grid-container">
+      <div class="layer-card" *ngFor="let layer of architectureLayers">
+        <div class="layer-header">
+          <span class="layer-name">{{ layer.name }}</span>
+          <span class="layer-status">{{ layer.status }}</span>
+        </div>
+        <div class="layer-tech">{{ layer.tech }}</div>
+        <div class="layer-port">Port: <code>{{ layer.port }}</code></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="config-card">
+    <h3>Connected Services Configuration</h3>
+    <div class="config-item">
+      <span class="config-label">Spring Boot API Endpoint:</span>
+      <code class="config-value">{{ apiBaseUrl }}</code>
+    </div>
+    <div class="config-item">
+      <span class="config-label">AI Service Endpoint:</span>
+      <code class="config-value">{{ aiServiceBaseUrl }}</code>
+    </div>
+    <div class="config-item">
+      <span class="config-label">Environment Mode:</span>
+      <code class="config-value">{{ isProduction ? 'Production' : 'Development' }}</code>
+    </div>
+  </section>
+
+  <footer class="footer-note">
+    <p>Phase 1 complete: Repository skeleton and infrastructure initialized. Business domain logic, CSV ingestion, and AI workflows will be implemented in subsequent phases.</p>
+  </footer>
+</div>

@@ -1,16 +1,50 @@
-# Compiled class file
-*.class
+# Environment and local secret files
+.env
+*.env
+!.env.example
+.env.local
+.env.*.local
 
-# Log file
+# Operating System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+*.swp
+*~
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.springBeans
+*.sublime-project
+*.sublime-workspace
+
+# Logs
 *.log
+logs/
+*.log.*
+hs_err_pid*
+replay_pid*
 
-# BlueJ files
-*.ctxt
+# Database & Docker Volumes
+.docker/
+docker-data/
+postgres-data/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+# Java / Maven build output
+backend-spring/target/
+backend-spring/.mvn/timing.properties
+backend-spring/.mvn/wrapper/maven-wrapper.jar
+target/
+*.class
 *.jar
 *.war
 *.nar
@@ -19,6 +53,31 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# Node / Angular
+frontend-angular/node_modules/
+frontend-angular/.angular/
+frontend-angular/dist/
+frontend-angular/.sass-cache/
+node_modules/
+dist/
+.angular/
+
+# Python / FastAPI
+ai-service/.venv/
+ai-service/venv/
+ai-service/env/
+ai-service/__pycache__/
+ai-service/*/__pycache__/
+ai-service/*/*/__pycache__/
+ai-service/*/*/*/__pycache__/
+ai-service/.pytest_cache/
+ai-service/.ruff_cache/
+ai-service/.coverage
+ai-service/htmlcov/
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
