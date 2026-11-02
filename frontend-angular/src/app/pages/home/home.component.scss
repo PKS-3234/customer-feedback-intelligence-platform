@@ -38,7 +38,7 @@
   }
 }
 
-.overview-card, .config-card {
+.overview-card, .config-card, .actions-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 0.75rem;
@@ -59,6 +59,61 @@
 
   h3 {
     font-size: 1.1rem;
+  }
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.action-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background-color: #f8fafc;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+  }
+
+  .action-icon {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .action-content {
+    flex: 1;
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin: 0 0 0.35rem 0;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: #475569;
+      margin: 0 0 0.75rem 0;
+      line-height: 1.4;
+    }
+
+    .action-btn {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #2563eb;
+    }
   }
 }
 

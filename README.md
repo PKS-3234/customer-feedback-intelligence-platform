@@ -16,7 +16,7 @@ The **Customer Feedback Intelligence Platform** provides:
 - **Conversational Decision-Support Agent**: A supervisor agent that calls deterministic SQL tools and PGVector retrieval tools to answer questions with verified numbers and citations.
 
 > [!NOTE]
-> **Phase 1 Implementation Notice**: This repository currently contains the **Phase 1 Foundation Skeleton and Infrastructure**. CSV ingestion, JPA entities, LangGraph workflows, real model integrations, and dashboard interfaces will be introduced in subsequent phases as defined in the system blueprint.
+> **Phase 2 Implementation Notice**: This repository contains the completed **Phase 1 Foundation** and **Phase 2 Database Schema & CSV Ingestion System**. CSV validation, SHA-256 deduplication, relational persistence, processing error tracking, batch reconciliation, and Angular data operations UI are fully implemented and verified. AI processing graphs (LangGraph), embeddings, vector similarity search, and chatbot exploration will be introduced in subsequent phases.
 
 ---
 
@@ -100,17 +100,28 @@ CustomerFeedbackIntelligence/
 │   │   │   │   ├── config/
 │   │   │   │   │   └── CorsConfig.java          # Cross-Origin configuration
 │   │   │   │   ├── controller/
+│   │   │   │   │   ├── BatchController.java     # CSV preview, batch ingestion, monitor endpoints
+│   │   │   │   │   ├── FeedbackController.java  # Feedback query and inspection endpoints
 │   │   │   │   │   └── HealthController.java    # /api/v1/health endpoint
-│   │   │   │   └── dto/
-│   │   │   │       └── HealthResponse.java      # Typed health DTO record
+│   │   │   │   ├── dto/                         # Typed DTOs and API records
+│   │   │   │   ├── entity/                      # JPA Entities (IngestionBatch, Feedback, ProcessingError)
+│   │   │   │   ├── exception/                   # Global exception handling & custom exceptions
+│   │   │   │   ├── model/enums/                 # Domain enums (BatchStatus, ProcessingStage, etc.)
+│   │   │   │   ├── repository/                  # Spring Data JPA repositories
+│   │   │   │   └── service/                     # Ingestion, validation, deduplication, query services
 │   │   │   └── resources/
 │   │   │       ├── application.yml              # Local environment configuration
 │   │   │       └── db/migration/
-│   │   │           └── V1__init_empty.sql       # Initial Flyway migration baseline
+│   │   │           ├── V1__init_empty.sql       # Initial baseline migration
+│   │   │           └── V2__create_ingestion_schema.sql # Batch & feedback relational schema
 │   │   └── test/java/com/customerfeedback/platform/
 │   │       ├── CustomerFeedbackPlatformApplicationTests.java
-│   │       └── controller/
-│   │           └── HealthControllerTest.java    # MockMvc endpoint tests
+│   │       ├── controller/
+│   │       │   ├── BatchControllerIntegrationTest.java # Integration tests with PostgreSQL
+│   │       │   └── HealthControllerTest.java
+│   │       └── service/
+│   │           ├── CsvValidationServiceTest.java
+│   │           └── DeduplicationServiceTest.java
 │   └── README.md                    # Spring Boot backend documentation
 ├── database/                        # Database initialization scripts
 │   └── init/
@@ -127,19 +138,74 @@ CustomerFeedbackIntelligence/
 │   │   │   └── environment.development.ts       # Development environment settings
 │   │   ├── app/
 │   │   │   ├── app.ts               # Root component definition
-│   │   │   ├── app.html             # Shell template with router-outlet
+│   │   │   ├── app.html             # Main application shell with navbar and router-outlet
+│   │   │   ├── app.scss             # Top navbar navigation styles
 │   │   │   ├── app.routes.ts        # App route declarations
+│   │   │   ├── app.routes.spec.ts   # Route navigation unit tests
 │   │   │   ├── app.spec.ts          # Root component unit tests
-│   │   │   └── pages/home/
-│   │   │       ├── home.component.ts            # Phase 1 landing dashboard
-│   │   │       ├── home.component.html
-│   │   │       ├── home.component.scss
-│   │   │       └── home.component.spec.ts
+│   │   │   ├── core/
+│   │   │   │   ├── models/          # Angular TypeScript interfaces
+│   │   │   │   └── services/
+│   │   │   │       ├── batch.service.ts         # HTTP API client for ingestion & batches
+│   │   │   │       └── batch.service.spec.ts    # BatchService unit tests
+│   │   │   └── pages/
+│   │   │       ├── home/                        # Landing dashboard with direct action links
+│   │   │       └── data-operations/
+│   │   │           ├── upload/                  # CSV upload, drag-and-drop, preview & validation
+│   │   │           └── batches/                 # Processing monitor and batch detail explorer
 │   │   └── main.ts                  # Angular bootstrap
 │   └── README.md                    # Frontend documentation
 └── sample-data/                     # Reference synthetic datasets
     └── banking_feedback_1000.csv    # 1,000 synthetic banking feedback records
 ```
+
+---
+
+## 4. Phase 2 Features: CSV Ingestion, Deduplication & Monitoring
+
+Phase 2 adds deterministic ingestion pipelines, data validation, idempotency safeguards, and monitoring dashboards:
+
+### 4.1 Ingestion & Validation Engine
+- **RFC 4180 Parsing**: Multi-line fields, escaped quotes, and diverse line delimiters handled via Apache Commons CSV.
+- **Canonical Column Mapping**: Maps variations of common column headers (`feedback_id`, `text`/`feedback_text`, `date`, `rating`, `channel`, `product`, `region`, `segment`) to canonical database columns.
+- **Row-Level Validation**:
+  - `feedback_text`: Required, trimmed length between 3 and 5,000 characters.
+  - `rating`: Optional integer between 1 and 5.
+  - `feedback_date`: Formatted as ISO-8601 (`YYYY-MM-DD`).
+  - `channel`: Normalized string identifier.
+- **Preview & Dry-Run**: `POST /api/v1/batches/validate` previews first 10 rows and reports header validity and syntax errors with zero database writes.
+
+### 4.2 Deduplication & Idempotency
+- **Fingerprinting**: Computes a deterministic SHA-256 hash across canonical fields:
+  ```
+  fingerprint = SHA-256(externalReference + "|" + customerId + "|" + channel + "|" + product + "|" + rating + "|" + feedbackText)
+  ```
+- **Database Idempotency**: Verified across existing records in `raw_feedback`.
+- **Duplicate Handling**: Detected duplicate rows are recorded as non-fatal errors in `processing_errors` under stage `DUPLICATE_CHECK`, incrementing `duplicate_rows` without inserting redundant database rows.
+
+### 4.3 Database Schema (Flyway `V2__create_ingestion_schema.sql`)
+- `ingestion_batches`: Tracks file hash, upload timestamp, operator, row metrics (`total_rows`, `valid_rows`, `successful_rows`, `failed_rows`, `duplicate_rows`), and lifecycle status (`RECEIVED`, `IMPORTING`, `COMPLETED`, `COMPLETED_WITH_ERRORS`, `FAILED`).
+- `raw_feedback`: Stores immutable feedback text, metadata, batch references, deduplication hashes, and `processing_status` (`AI_PENDING`).
+- `processing_errors`: Comprehensive error tracking including CSV row number, error code, error message, stage (`FILE_VALIDATION`, `CSV_PARSING`, `ROW_VALIDATION`, `DUPLICATE_CHECK`), and raw row payload.
+
+### 4.4 Angular Web UI & Routes
+- `/`: Home screen with live architectural health status and quick-access data operations cards.
+- `/data-operations/upload`: Drag-and-drop CSV upload, validation metrics preview, and asynchronous batch submission.
+- `/data-operations/batches`: Processing monitor with batch status filter, pagination, row metrics, and drill-down links.
+- `/data-operations/batches/:batchId`: Detailed batch inspection, metadata audit, summary cards, and paginated error log with stage filter and raw row data drawer.
+
+### 4.5 End-to-End Validation Evidence (`banking_feedback_1000.csv`)
+- **Initial Upload**:
+  - 1,000 total rows processed.
+  - 1,000 successful rows stored in `raw_feedback` with status `AI_PENDING`.
+  - Batch status: `COMPLETED` (`totalRows = 1000, successfulRows = 1000, failedRows = 0, duplicateRows = 0`).
+  - Reconciliation check: `1000 == 1000 + 0 + 0` (100% matched).
+- **Duplicate Upload (Idempotency)**:
+  - Re-uploading the exact same 1,000 records.
+  - 1,000 duplicate rows detected.
+  - Batch status: `COMPLETED_WITH_ERRORS` (`totalRows = 1000, successfulRows = 0, failedRows = 0, duplicateRows = 1000`).
+  - 1,000 errors logged in `processing_errors` with code `DUPLICATE_IN_DATABASE`.
+  - Zero duplicate rows inserted into `raw_feedback`.
 
 ---
 
@@ -281,12 +347,18 @@ The AI Service will start on port `8000`.
 
 | Service | Port | Endpoint URL | Description |
 |---|---|---|---|
-| **Spring Boot API** | `8080` | `http://localhost:8080/api/v1/health` | Documented application health status |
+| **Spring Boot Swagger UI**| `8080` | `http://localhost:8080/swagger-ui.html` | Interactive Swagger / OpenAPI 3 API explorer |
+| **Spring Boot OpenAPI Specs**| `8080` | `http://localhost:8080/v3/api-docs` | Raw OpenAPI 3 specification JSON |
+| **Spring Boot Batches API**| `8080` | `http://localhost:8080/api/v1/batches` | Batch upload, listing, details, and errors |
+| **Spring Boot Feedback API**| `8080` | `http://localhost:8080/api/v1/feedback` | Ingested raw feedback query and inspection |
+| **Spring Boot Health** | `8080` | `http://localhost:8080/api/v1/health` | Documented application health status |
 | **Spring Boot Actuator**| `8080` | `http://localhost:8080/actuator/health` | Detailed Spring Boot actuator metrics |
 | **FastAPI Root** | `8000` | `http://localhost:8000/health` | Top-level service health check |
 | **FastAPI Internal** | `8000` | `http://localhost:8000/internal/v1/health` | Blueprint-specified internal health check |
-| **FastAPI Docs** | `8000` | `http://localhost:8000/docs` | Interactive Swagger API documentation |
-| **Angular Web UI** | `4200` | `http://localhost:4200` | Frontend landing page & service status |
+| **FastAPI Docs** | `8000` | `http://localhost:8000/docs` | FastAPI Swagger API documentation |
+| **Angular Home** | `4200` | `http://localhost:4200` | Frontend landing page & operations launcher |
+| **Angular Upload** | `4200` | `http://localhost:4200/data-operations/upload` | Drag-and-drop CSV validation & ingestion |
+| **Angular Monitor** | `4200` | `http://localhost:4200/data-operations/batches` | Batch processing status monitor & history |
 | **PostgreSQL** | `5432` | `localhost:5432/feedback_intel` | Tested via `pg_isready` healthcheck |
 
 ---
@@ -348,24 +420,23 @@ To inspect the database using pgAdmin or any PostgreSQL GUI client (e.g. DBeaver
 
 ---
 
-## 14. Phase 1 Scope Boundary Statement
+## 14. Phase 2 Scope Boundary Statement
 
 > [!IMPORTANT]
-> The following capabilities are **explicitly NOT part of Phase 1** and have **not been implemented**:
-> - CSV ingestion, upload parsing, or column mapping.
-> - JPA domain entities, repositories, or feedback tables.
-> - Mock LLM implementations, OpenAI/Azure integrations, or paid API keys.
-> - LangGraph workflows, LangChain chains, or agentic reasoning.
-> - Embedding generation, vector cosine similarity queries, or RAG search.
-> - Executive dashboards, charting libraries, or feedback explorers.
-> - Authentication, security tokens, or cloud deployments.
+> The following capabilities are **explicitly NOT part of Phase 2** and are planned for Phase 3 and Phase 4:
+> - LangGraph deterministic processing graphs or LangChain orchestration.
+> - LLM classification, zero-shot emotion taxonomy extraction, or urgency scoring.
+> - Dense vector embedding generation and PGVector HNSW similarity search.
+> - Decision-support supervisor chatbot, prompt construction, or RAG tools.
+> - Executive dashboard analytical charts (sentiment breakdown, trend line charts).
+> - Production authentication/authorization (OAuth2/OIDC).
 
 ---
 
-## 15. Next Planned Phase: Phase 2
+## 15. Next Planned Phase: Phase 3
 
-**Phase 2: Database Schema & CSV Ingestion**
-- Implementation of Flyway migrations for `ingestion_batches`, `feedback`, `feedback_analysis`, `feedback_embeddings`, and `processing_errors`.
-- Spring Boot CSV ingestion adapter with file preview, column mapping, row-level validation, and SHA-256 deduplication hashing.
-- Upload CSV screen and Processing Monitor UI in Angular.
-- Integration tests using synthetic dataset `sample-data/banking_feedback_1000.csv`.
+**Phase 3: LangGraph AI Processing Graph & Embeddings Generation**
+- Connect FastAPI AI service with Spring Boot queue/trigger.
+- Implement stateful LangGraph processing pipeline (data cleansing, sentiment/emotion classification, urgency score, embedding vector).
+- Store embeddings in PostgreSQL `feedback_embeddings` table with pgvector cosine similarity indexing.
+- Verify end-to-end classification and embeddings against ingested feedback records.

@@ -1,9 +1,31 @@
 <div class="home-container">
   <header class="hero-section">
-    <div class="badge">Phase 1 Foundation Skeleton</div>
+    <div class="badge">Phase 2 CSV Ingestion Active</div>
     <h1 class="main-title">{{ title }}</h1>
     <p class="subtitle">{{ subtitle }}</p>
   </header>
+
+  <section class="actions-card">
+    <h2>Data Operations & Ingestion</h2>
+    <div class="actions-grid">
+      <a routerLink="/data-operations/upload" class="action-card">
+        <div class="action-icon">&#128196;</div>
+        <div class="action-content">
+          <h3>Upload Feedback CSV</h3>
+          <p>Upload and validate customer feedback CSV files with RFC 4180 parsing, deduplication, and schema validation.</p>
+          <span class="action-btn">Launch Upload &rarr;</span>
+        </div>
+      </a>
+      <a routerLink="/data-operations/batches" class="action-card">
+        <div class="action-icon">&#128202;</div>
+        <div class="action-content">
+          <h3>Processing Monitor</h3>
+          <p>Inspect ingestion batches, audit row status reconciliation, monitor duplicate detections and error logs.</p>
+          <span class="action-btn">View Batches &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </section>
 
   <section class="overview-card">
     <h2>System Architecture & Foundation Status</h2>
