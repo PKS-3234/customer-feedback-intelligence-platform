@@ -5,7 +5,7 @@ from app.agents.analytics_agent import AnalyticsAgent
 from app.agents.data_quality_agent import DataQualityAgent
 from app.agents.reporting_agent import ReportingAgent
 from app.agents.retrieval_agent import RetrievalAgent
-from app.models.agents import AgentQueryRequest, AgentQueryResponse, SupportingEvidence
+from app.models.agents import AgentQueryRequest, AgentQueryResponse
 
 logger = logging.getLogger(__name__)
 
@@ -53,31 +53,15 @@ class SupervisorAgent:
         return selected
 
     def execute(self, request: AgentQueryRequest) -> AgentQueryResponse:
-        routed_agents = self.route(request.query)
-        evidence: List[SupportingEvidence] = []
-        agents_used = [self.name]
+        """
+        Executes query through the LangGraph StateGraph orchestration workflow.
+        """
+        from app.workflow.langgraph_workflow import LangGraphWorkflow
 
-        if "analytics" in routed_agents:
-            evidence.extend(self.analytics_agent.run())
-            agents_used.append(self.analytics_agent.name)
-        if "retrieval" in routed_agents:
-            evidence.extend(
-                self.retrieval_agent.run(request.query, request.limit)
-            )
-            agents_used.append(self.retrieval_agent.name)
-        if "quality" in routed_agents:
-            evidence.extend(self.data_quality_agent.run())
-            agents_used.append(self.data_quality_agent.name)
-
-        answer = self.reporting_agent.run(request.query, evidence)
-        agents_used.append(self.reporting_agent.name)
-        logger.info(
-            "Supervisor routed query to %s; %d evidence items collected.",
-            routed_agents,
-            len(evidence),
+        workflow = LangGraphWorkflow(
+            analytics_agent=self.analytics_agent,
+            retrieval_agent=self.retrieval_agent,
+            data_quality_agent=self.data_quality_agent,
+            reporting_agent=self.reporting_agent,
         )
-        return AgentQueryResponse(
-            answer=answer,
-            agentsUsed=agents_used,
-            supportingEvidence=evidence,
-        )
+        return workflow.run(request)
