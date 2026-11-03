@@ -1,0 +1,56 @@
+<section class="copilot-page">
+  <header class="page-header">
+    <h1>Feedback Copilot</h1>
+    <p>Ask a question about customer feedback. Responses are grounded in retrieved feedback and database analysis.</p>
+  </header>
+
+  <section class="card query-card" aria-label="Ask the feedback agents">
+    <label for="copilotQuery">Your question</label>
+    <textarea
+      id="copilotQuery"
+      name="copilotQuery"
+      [(ngModel)]="query"
+      (keydown.control.enter)="ask()"
+      (keydown.meta.enter)="ask()"
+      placeholder="For example: What issues are customers reporting about duplicate charges?"></textarea>
+    <div class="query-actions">
+      <span>Press Ctrl+Enter to submit</span>
+      <button class="btn btn-primary" type="button" [disabled]="isQuerying" (click)="ask()">
+        {{ isQuerying ? 'Working...' : 'Ask Copilot' }}
+      </button>
+    </div>
+  </section>
+
+  <div class="alert" role="alert" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <p class="loading-state" *ngIf="isQuerying" aria-live="polite">Routing your question to the appropriate agents...</p>
+
+  <section class="response" *ngIf="result as response" aria-live="polite">
+    <article class="card answer-card">
+      <h2>Answer</h2>
+      <p class="answer">{{ response.answer }}</p>
+    </article>
+
+    <section class="card agents-card" aria-label="Agents used">
+      <h2>Agents used</h2>
+      <ul class="agent-list">
+        <li *ngFor="let agent of response.agentsUsed">{{ agent }}</li>
+      </ul>
+    </section>
+
+    <section class="evidence-section" aria-label="Supporting evidence">
+      <div class="section-heading">
+        <h2>Supporting evidence</h2>
+        <span>{{ response.supportingEvidence.length }} item(s)</span>
+      </div>
+      <article class="card evidence-card" *ngFor="let evidence of response.supportingEvidence">
+        <div class="evidence-heading">
+          <h3>{{ evidence.title }}</h3>
+          <code>{{ evidence.evidenceId }}</code>
+        </div>
+        <p>{{ evidence.content }}</p>
+        <small>Source: {{ evidence.source }}</small>
+      </article>
+      <p class="empty-state" *ngIf="!response.supportingEvidence.length">No supporting evidence was returned.</p>
+    </section>
+  </section>
+</section>

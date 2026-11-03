@@ -5,6 +5,7 @@ import { BatchListComponent } from './pages/data-operations/batches/batch-list.c
 import { BatchDetailComponent } from './pages/data-operations/batches/batch-detail.component';
 import { AnalysisComponent } from './pages/analysis/analysis.component';
 import { SemanticSearchComponent } from './pages/semantic-search/semantic-search.component';
+import { CopilotComponent } from './pages/copilot/copilot.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: 'data-operations/batches/:batchId', component: BatchDetailComponent },
   { path: 'analysis', component: AnalysisComponent },
   { path: 'semantic-search', component: SemanticSearchComponent },
+  { path: 'copilot', component: CopilotComponent },
   { path: '**', redirectTo: '' }
 ];

@@ -185,6 +185,107 @@ def get_feedback_with_current_analysis(
             return cur.fetchone()
 
 
+def get_analytics_snapshot() -> Dict[str, Any]:
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT
+                    COUNT(DISTINCT feedback.feedback_id)::int AS feedback_total,
+                    COUNT(DISTINCT analysis.feedback_id)::int AS analyzed_total
+                FROM feedback
+                LEFT JOIN feedback_analysis analysis
+                  ON analysis.feedback_id = feedback.feedback_id
+                 AND analysis.is_current = true
+                """
+            )
+            totals = cur.fetchone()
+            cur.execute(
+                """
+                SELECT sentiment, COUNT(*)::int AS count
+                FROM feedback_analysis
+                WHERE is_current = true
+                GROUP BY sentiment
+                ORDER BY count DESC, sentiment
+                """
+            )
+            sentiments = cur.fetchall()
+            cur.execute(
+                """
+                SELECT category, COUNT(*)::int AS count
+                FROM feedback_analysis
+                WHERE is_current = true
+                GROUP BY category
+                ORDER BY count DESC, category
+                LIMIT 5
+                """
+            )
+            categories = cur.fetchall()
+            cur.execute(
+                """
+                SELECT priority, COUNT(*)::int AS count
+                FROM feedback_analysis
+                WHERE is_current = true
+                GROUP BY priority
+                ORDER BY count DESC, priority
+                """
+            )
+            priorities = cur.fetchall()
+
+    return {
+        "feedbackTotal": totals["feedback_total"],
+        "analyzedTotal": totals["analyzed_total"],
+        "sentiments": sentiments,
+        "categories": categories,
+        "priorities": priorities,
+    }
+
+
+def get_data_quality_metrics() -> Dict[str, int]:
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT
+                    COUNT(*)::int AS feedback_total,
+                    COUNT(*) FILTER (
+                        WHERE EXISTS (
+                            SELECT 1 FROM feedback_analysis analysis
+                            WHERE analysis.feedback_id = feedback.feedback_id
+                              AND analysis.is_current = true
+                        )
+                    )::int AS analyzed_total,
+                    COUNT(*) FILTER (
+                        WHERE EXISTS (
+                            SELECT 1
+                            FROM feedback_analysis analysis
+                            JOIN feedback_embeddings embedding
+                              ON embedding.analysis_id = analysis.analysis_id
+                             AND embedding.feedback_id = feedback.feedback_id
+                             AND embedding.is_current = true
+                            WHERE analysis.feedback_id = feedback.feedback_id
+                              AND analysis.is_current = true
+                        )
+                    )::int AS embedded_total,
+                    COUNT(*) FILTER (
+                        WHERE processing_status = 'FAILED'
+                    )::int AS failed_feedback_total
+                FROM feedback
+                """
+            )
+            metrics = cur.fetchone()
+            cur.execute("SELECT COUNT(*)::int AS count FROM processing_errors")
+            errors = cur.fetchone()["count"]
+
+    return {
+        "feedbackTotal": metrics["feedback_total"],
+        "analyzedTotal": metrics["analyzed_total"],
+        "embeddedTotal": metrics["embedded_total"],
+        "failedFeedbackTotal": metrics["failed_feedback_total"],
+        "processingErrorTotal": errors,
+    }
+
+
 def get_pending_embedding_records(
     batch_id: str,
     model_name: str,

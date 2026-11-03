@@ -16,7 +16,7 @@ The **Customer Feedback Intelligence Platform** provides:
 - **Conversational Decision-Support Agent**: A supervisor agent that calls deterministic SQL tools and PGVector retrieval tools to answer questions with verified numbers and citations.
 
 > [!NOTE]
-> **Implementation Status**: Phase 1 foundation, Phase 2 CSV ingestion, Phase 3 Gemini feedback analysis, and Phase 4 Gemini embeddings/PGVector semantic search are implemented. LangGraph, chatbot exploration, dashboards, and production authentication are not included.
+> **Implementation Status**: Phases 1-4 and the bounded Phase 5 multi-agent Copilot are implemented. LangGraph, agent memory and loops, autonomous actions, dashboards, and production authentication are not included.
 
 ---
 
@@ -206,6 +206,13 @@ Phase 2 adds deterministic ingestion pipelines, data validation, idempotency saf
   - Batch status: `COMPLETED_WITH_ERRORS` (`totalRows = 1000, successfulRows = 0, failedRows = 0, duplicateRows = 1000`).
   - 1,000 errors logged in `processing_errors` with code `DUPLICATE_IN_DATABASE`.
   - Zero duplicate rows inserted into `raw_feedback`.
+
+### 4.6 Phase 3-5 AI Analysis, Semantic Search, and Copilot
+- Gemini analysis and embedding generation use the existing `feedback_analysis` and `feedback_embeddings` records. Semantic retrieval uses PGVector; the agent workflow does not modify ingestion or analysis records.
+- `POST /api/v1/agents/query` is exposed by FastAPI and proxied through Spring Boot at the same path. It accepts `{"query":"...","limit":5}` (`limit` is optional, 1-10).
+- The Supervisor routes each request once to fixed Analytics, Retrieval, and/or Data Quality agents. The Reporting Agent makes one Gemini call against the collected evidence and returns an answer, `agentsUsed`, and `supportingEvidence`.
+- Analytics and data-quality agents run fixed read-only aggregate queries. Retrieval reuses semantic search. There is no LangGraph, memory, agent loop, autonomous action, or database write in this workflow.
+- Angular `/copilot` submits questions through Spring Boot and displays the answer, agents used, and evidence cards with source information.
 
 ---
 
