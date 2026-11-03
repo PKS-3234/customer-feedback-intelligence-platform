@@ -28,7 +28,10 @@ app.add_middleware(
 # Top-level /health endpoint (Phase 1 requirement)
 app.include_router(health_router, prefix="", tags=["Health"])
 
-# Blueprint internal API prefix (/internal/v1/health)
+# Standard API prefix (/api/v1/analyze, /api/v1/health)
+app.include_router(api_v1_router, prefix="/api/v1")
+
+# Blueprint internal API prefix (/internal/v1/health, /internal/v1/analyze)
 app.include_router(api_v1_router, prefix="/internal/v1")
 
 
@@ -41,4 +44,6 @@ def root():
         "docs": "/docs",
         "health": "/health",
         "internal_health": "/internal/v1/health",
+        "model_provider": settings.MODEL_PROVIDER,
+        "chat_model": settings.GEMINI_CHAT_MODEL,
     }
