@@ -1,6 +1,7 @@
 package com.customerfeedback.platform.exception;
 
 import com.customerfeedback.platform.dto.ApiErrorResponse;
+import com.customerfeedback.platform.service.AiServiceException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,30 @@ import java.util.UUID;
 public class GlobalExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
+    @ExceptionHandler(AiServiceException.class)
+    public ResponseEntity<ApiErrorResponse> handleAiServiceFailure(
+            AiServiceException ex, HttpServletRequest request) {
+        HttpStatus status = ex.getUpstreamStatus() == HttpStatus.NOT_FOUND.value()
+                ? HttpStatus.NOT_FOUND
+                : ex.getUpstreamStatus() == HttpStatus.BAD_REQUEST.value()
+                        ? HttpStatus.BAD_REQUEST
+                        : HttpStatus.BAD_GATEWAY;
+        String correlationId = UUID.randomUUID().toString();
+        log.error("[{}] AI service request failed with upstream status {}",
+                correlationId, ex.getUpstreamStatus(), ex);
+
+        ApiErrorResponse error = new ApiErrorResponse(
+                Instant.now(),
+                status.value(),
+                "AI_SERVICE_FAILURE",
+                "The AI analysis service could not complete the request.",
+                request.getRequestURI(),
+                correlationId,
+                null
+        );
+        return ResponseEntity.status(status).body(error);
+    }
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiErrorResponse> handleNotFound(ResourceNotFoundException ex, HttpServletRequest request) {

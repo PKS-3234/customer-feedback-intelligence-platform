@@ -2,7 +2,7 @@
 
 The business backend service for the Customer Feedback Intelligence Platform, built with Java 21 and Spring Boot 3.3.5.
 
-> **Phase 1 Status**: Minimal skeleton with Spring Web, Actuator, Flyway, PostgreSQL driver, and JPA foundations. Health check endpoints and CORS are fully functional. Business entities, CSV ingestion, and AI integrations will be added in subsequent phases.
+> The backend includes CSV ingestion and a Spring-to-FastAPI integration for triggering AI analysis and retrieving persisted results.
 
 ---
 
@@ -64,3 +64,16 @@ java -jar target/backend-spring-1.0.0-SNAPSHOT.jar
   }
   ```
 - `GET http://localhost:8080/actuator/health`: Spring Boot Actuator health endpoint.
+
+## 5. AI Analysis Endpoints
+
+Spring proxies analysis requests to the FastAPI service configured by `AI_SERVICE_BASE_URL`. FastAPI/Gemini analysis results are persisted in the shared PostgreSQL database; Spring exposes result retrieval from `feedback_analysis`.
+
+| Method | Endpoint | Purpose |
+|--------|----------|---------|
+| `POST` | `/api/v1/analysis/feedback/{feedbackId}` | Analyze and persist one feedback record |
+| `POST` | `/api/v1/analysis/batches/{batchId}?limit={count}` | Analyze pending feedback in a batch; `limit` is optional and must be positive |
+| `GET` | `/api/v1/analysis/feedback/{feedbackId}` | Retrieve the current persisted analysis for feedback |
+| `GET` | `/api/v1/analysis/batches/{batchId}` | List current persisted analyses for a batch |
+
+Analysis run requests return `502 Bad Gateway` when the AI service is unavailable. A missing upstream feedback record returns `404`.

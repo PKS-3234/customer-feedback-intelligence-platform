@@ -1,0 +1,99 @@
+<section class="analysis-page">
+  <header class="page-header">
+    <div>
+      <h1>Feedback Analysis</h1>
+      <p>Run AI analysis for a batch and inspect its persisted feedback results.</p>
+    </div>
+  </header>
+
+  <section class="card controls-card" aria-label="Batch analysis controls">
+    <label for="batchId">Ingestion batch ID</label>
+    <div class="controls-row">
+      <input
+        id="batchId"
+        name="batchId"
+        type="text"
+        [(ngModel)]="batchId"
+        placeholder="Paste a batch UUID"
+        autocomplete="off">
+      <label class="limit-field" for="analysisLimit">
+        Maximum records
+        <input
+          id="analysisLimit"
+          name="analysisLimit"
+          type="number"
+          min="1"
+          step="1"
+          [(ngModel)]="limit"
+          placeholder="All pending">
+      </label>
+      <button class="btn btn-primary" type="button" [disabled]="isAnalyzing" (click)="runBatchAnalysis()">
+        {{ isAnalyzing ? 'Analyzing...' : 'Analyze batch' }}
+      </button>
+      <button class="btn btn-outline" type="button" [disabled]="isLoading" (click)="loadResults()">
+        Load results
+      </button>
+    </div>
+    <p class="hint">Analysis may take time depending on the number of pending records and Gemini rate limits.</p>
+  </section>
+
+  <div class="alert" role="alert" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <section class="summary-grid" *ngIf="summary as run">
+    <div class="summary-card"><span>Processed</span><strong>{{ run.processed }}</strong></div>
+    <div class="summary-card"><span>Successful</span><strong>{{ run.successful }}</strong></div>
+    <div class="summary-card"><span>Failed</span><strong>{{ run.failed }}</strong></div>
+    <div class="summary-card"><span>Duration</span><strong>{{ run.durationSeconds }}s</strong></div>
+  </section>
+
+  <section class="card results-card">
+    <div class="results-heading">
+      <div>
+        <h2>Current analysis results</h2>
+        <p *ngIf="batchId">Batch: <code>{{ batchId }}</code></p>
+      </div>
+      <span>{{ results.length }} result(s)</span>
+    </div>
+
+    <div class="loading-state" *ngIf="isLoading || isAnalyzing" aria-live="polite">
+      {{ isAnalyzing ? 'Running AI analysis...' : 'Loading analysis results...' }}
+    </div>
+
+    <div class="table-responsive" *ngIf="!isLoading && !isAnalyzing && results.length">
+      <table>
+        <thead>
+          <tr>
+            <th>Feedback ID</th>
+            <th>Sentiment</th>
+            <th>Category / Theme</th>
+            <th>Emotion</th>
+            <th>Priority</th>
+            <th>Department</th>
+            <th>Summary</th>
+            <th>Confidence</th>
+            <th>Analyzed</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let result of results">
+            <td><code>{{ result.feedbackId }}</code></td>
+            <td><span class="tag" [class]="'tag sentiment-' + result.sentiment.toLowerCase()">{{ result.sentiment }}</span></td>
+            <td>{{ result.category }}<small>{{ result.theme }}</small></td>
+            <td>{{ result.emotion }}</td>
+            <td><span class="tag" [class]="'tag priority-' + result.priority.toLowerCase()">{{ result.priority }}</span></td>
+            <td>{{ result.assignedDepartment }}</td>
+            <td class="summary-cell">{{ result.summary }}</td>
+            <td>{{ result.confidence | percent:'1.0-0' }}</td>
+            <td>{{ result.analyzedAt | date:'short' }}</td>
+            <td><button class="btn btn-outline btn-sm" type="button" (click)="reanalyze(result.feedbackId)">Re-analyze</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="empty-state" *ngIf="!isLoading && !isAnalyzing && !results.length">
+      No current analysis results to show. Enter a batch ID and run analysis or load previously analyzed records.
+    </p>
+  </section>
+</section>

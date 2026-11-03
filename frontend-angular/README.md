@@ -2,7 +2,7 @@
 
 The web frontend for the Customer Feedback Intelligence Platform, built using Angular 21, TypeScript, and SCSS.
 
-> **Phase 1 Status**: Minimal application skeleton displaying the platform home screen and configuring environment endpoints for the Spring Boot backend API. Full dashboards, CSV upload workflows, feedback exploration, and conversational chat interfaces will be built in subsequent phases.
+> The frontend supports CSV ingestion/monitoring and includes a batch AI analysis screen backed by Spring Boot.
 
 ---
 
@@ -51,7 +51,13 @@ Access the UI at: [http://localhost:4200](http://localhost:4200)
 
 ---
 
-## 5. Testing
+## 5. AI Analysis
+
+Open `/analysis` (also available from the main navigation) to run AI analysis for pending feedback in a batch, optionally limit the number of records, and inspect persisted results. Existing results can be loaded by batch ID and individual feedback can be re-analyzed.
+
+The UI calls Spring Boot endpoints under `/api/v1/analysis`; Spring Boot invokes the FastAPI service for analysis runs. The Gemini API key and model configuration belong to the AI service and are not exposed to the browser.
+
+## 6. Testing
 
 ```powershell
 # Run unit tests
@@ -60,7 +66,7 @@ npm test -- --watch=false
 
 ---
 
-## 6. Production Build
+## 7. Production Build
 
 ```powershell
 # Build optimized production bundle

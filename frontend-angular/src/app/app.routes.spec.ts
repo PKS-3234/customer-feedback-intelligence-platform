@@ -5,6 +5,7 @@ import { vi } from 'vitest';
 import { of } from 'rxjs';
 import { routes } from './app.routes';
 import { BatchService } from './core/services/batch.service';
+import { AnalysisService } from './core/services/analysis.service';
 
 describe('App Routing', () => {
   let router: Router;
@@ -13,6 +14,17 @@ describe('App Routing', () => {
     listBatches: ReturnType<typeof vi.fn>;
     getBatchDetail: ReturnType<typeof vi.fn>;
     getBatchErrors: ReturnType<typeof vi.fn>;
+  };
+  const mockAnalysisService = {
+    analyzeBatch: vi.fn().mockReturnValue(of({
+      batchId: 'test',
+      processed: 0,
+      successful: 0,
+      failed: 0,
+      durationSeconds: 0
+    })),
+    getBatchAnalysis: vi.fn().mockReturnValue(of([])),
+    analyzeFeedback: vi.fn().mockReturnValue(of({}))
   };
 
   beforeEach(async () => {
@@ -54,7 +66,8 @@ describe('App Routing', () => {
     await TestBed.configureTestingModule({
       providers: [
         provideRouter(routes),
-        { provide: BatchService, useValue: mockBatchService }
+        { provide: BatchService, useValue: mockBatchService },
+        { provide: AnalysisService, useValue: mockAnalysisService }
       ]
     }).compileComponents();
 
@@ -81,6 +94,11 @@ describe('App Routing', () => {
   it('should navigate to /data-operations/batches/:batchId', async () => {
     await router.navigate(['/data-operations/batches/test-id-123']);
     expect(location.path()).toBe('/data-operations/batches/test-id-123');
+  });
+
+  it('should navigate to /analysis', async () => {
+    await router.navigate(['/analysis']);
+    expect(location.path()).toBe('/analysis');
   });
 
   it('should redirect unknown routes to Home', async () => {
