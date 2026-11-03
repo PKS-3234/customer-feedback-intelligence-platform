@@ -4,6 +4,7 @@ import { CsvUploadComponent } from './pages/data-operations/upload/csv-upload.co
 import { BatchListComponent } from './pages/data-operations/batches/batch-list.component';
 import { BatchDetailComponent } from './pages/data-operations/batches/batch-detail.component';
 import { AnalysisComponent } from './pages/analysis/analysis.component';
+import { SemanticSearchComponent } from './pages/semantic-search/semantic-search.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,5 +12,6 @@ export const routes: Routes = [
   { path: 'data-operations/batches', component: BatchListComponent },
   { path: 'data-operations/batches/:batchId', component: BatchDetailComponent },
   { path: 'analysis', component: AnalysisComponent },
+  { path: 'semantic-search', component: SemanticSearchComponent },
   { path: '**', redirectTo: '' }
 ];

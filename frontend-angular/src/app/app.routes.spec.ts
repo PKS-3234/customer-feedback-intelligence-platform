@@ -101,6 +101,11 @@ describe('App Routing', () => {
     expect(location.path()).toBe('/analysis');
   });
 
+  it('should navigate to /semantic-search', async () => {
+    await router.navigate(['/semantic-search']);
+    expect(location.path()).toBe('/semantic-search');
+  });
+
   it('should redirect unknown routes to Home', async () => {
     await router.navigate(['/non-existent-route-xyz']);
     expect(location.path()).toBe('');

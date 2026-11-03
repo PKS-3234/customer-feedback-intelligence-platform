@@ -1,0 +1,79 @@
+<section class="search-page">
+  <header class="page-header">
+    <h1>Semantic Search</h1>
+    <p>Find similar customer feedback using Gemini embeddings and PostgreSQL vector similarity.</p>
+  </header>
+
+  <section class="card search-card" aria-label="Semantic feedback search">
+    <label for="searchQuery">Describe an issue or enter a feedback phrase</label>
+    <div class="search-row">
+      <input
+        id="searchQuery"
+        name="searchQuery"
+        type="search"
+        [(ngModel)]="query"
+        (keyup.enter)="search()"
+        placeholder="For example: card charged twice">
+      <label class="limit-field" for="resultLimit">
+        Results
+        <input id="resultLimit" name="resultLimit" type="number" min="1" max="50" [(ngModel)]="resultLimit">
+      </label>
+      <button class="btn btn-primary" type="button" [disabled]="isSearching" (click)="search()">
+        {{ isSearching ? 'Searching...' : 'Search feedback' }}
+      </button>
+    </div>
+  </section>
+
+  <details class="card embedding-card">
+    <summary>Generate embeddings for an analyzed batch</summary>
+    <p>Only feedback with a current AI analysis and no current embedding is processed.</p>
+    <div class="embedding-row">
+      <label for="embeddingBatchId">Batch ID</label>
+      <input id="embeddingBatchId" name="embeddingBatchId" [(ngModel)]="batchId" placeholder="Paste a batch UUID">
+      <label for="embeddingLimit">Maximum records</label>
+      <input id="embeddingLimit" name="embeddingLimit" type="number" min="1" [(ngModel)]="embeddingLimit" placeholder="All eligible">
+      <button class="btn btn-outline" type="button" [disabled]="isEmbedding" (click)="generateBatchEmbeddings()">
+        {{ isEmbedding ? 'Generating...' : 'Generate embeddings' }}
+      </button>
+    </div>
+    <div class="embedding-summary" *ngIf="embeddingSummary as summary" aria-live="polite">
+      Processed {{ summary.processed }}: {{ summary.successful }} successful, {{ summary.failed }} failed
+      ({{ summary.durationSeconds }}s).
+    </div>
+  </details>
+
+  <div class="alert" role="alert" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <div class="loading-state" *ngIf="isSearching || isEmbedding" aria-live="polite">
+    {{ isSearching ? 'Searching feedback...' : 'Generating embeddings...' }}
+  </div>
+
+  <section class="results" aria-label="Semantic search results">
+    <div class="results-header">
+      <h2>Search results</h2>
+      <span>{{ results.length }} result(s)</span>
+    </div>
+    <article class="card result-card" *ngFor="let result of results">
+      <div class="result-header">
+        <div class="tags">
+          <span class="tag sentiment" *ngIf="result.sentiment">{{ result.sentiment }}</span>
+          <span class="tag priority" *ngIf="result.priority">{{ result.priority }}</span>
+          <span class="tag" *ngIf="result.category">{{ result.category }}</span>
+        </div>
+        <strong class="similarity">{{ result.similarity | percent:'1.0-1' }} similar</strong>
+      </div>
+      <p class="feedback-text">{{ result.feedbackText }}</p>
+      <p class="analysis-meta" *ngIf="result.theme || result.emotion || result.summary">
+        <span *ngIf="result.theme">Theme: {{ result.theme }}</span>
+        <span *ngIf="result.emotion">Emotion: {{ result.emotion }}</span>
+        <span *ngIf="result.summary">{{ result.summary }}</span>
+      </p>
+      <div class="result-footer">
+        <code>{{ result.feedbackId }}</code>
+        <button class="btn btn-text" type="button" (click)="searchFromFeedback(result.feedbackText)">Find similar</button>
+      </div>
+    </article>
+    <p class="empty-state" *ngIf="!isSearching && !results.length">
+      Enter a search phrase to find similar analyzed feedback.
+    </p>
+  </section>
+</section>

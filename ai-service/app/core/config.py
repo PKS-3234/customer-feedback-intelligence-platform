@@ -45,6 +45,9 @@ class Settings(BaseSettings):
     MODEL_PROVIDER: str = "gemini"
     GEMINI_API_KEY: str = ""
     GEMINI_CHAT_MODEL: str = "gemini-2.5-flash"
+    EMBEDDING_PROVIDER: str = "gemini"
+    GEMINI_EMBEDDING_MODEL: str = "gemini-embedding-001"
+    EMBEDDING_DIMENSIONS: int = 768
     PROMPT_VERSION: str = "v1.0"
     MAX_FEEDBACK_ANALYSIS_TOKENS: int = 2048
 

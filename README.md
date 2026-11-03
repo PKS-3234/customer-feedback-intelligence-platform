@@ -16,7 +16,7 @@ The **Customer Feedback Intelligence Platform** provides:
 - **Conversational Decision-Support Agent**: A supervisor agent that calls deterministic SQL tools and PGVector retrieval tools to answer questions with verified numbers and citations.
 
 > [!NOTE]
-> **Phase 2 Implementation Notice**: This repository contains the completed **Phase 1 Foundation** and **Phase 2 Database Schema & CSV Ingestion System**. CSV validation, SHA-256 deduplication, relational persistence, processing error tracking, batch reconciliation, and Angular data operations UI are fully implemented and verified. AI processing graphs (LangGraph), embeddings, vector similarity search, and chatbot exploration will be introduced in subsequent phases.
+> **Implementation Status**: Phase 1 foundation, Phase 2 CSV ingestion, Phase 3 Gemini feedback analysis, and Phase 4 Gemini embeddings/PGVector semantic search are implemented. LangGraph, chatbot exploration, dashboards, and production authentication are not included.
 
 ---
 
@@ -420,23 +420,13 @@ To inspect the database using pgAdmin or any PostgreSQL GUI client (e.g. DBeaver
 
 ---
 
-## 14. Phase 2 Scope Boundary Statement
+## 14. Current Scope Boundary
 
 > [!IMPORTANT]
-> The following capabilities are **explicitly NOT part of Phase 2** and are planned for Phase 3 and Phase 4:
+> The following capabilities are not included in the current implementation:
 > - LangGraph deterministic processing graphs or LangChain orchestration.
-> - LLM classification, zero-shot emotion taxonomy extraction, or urgency scoring.
-> - Dense vector embedding generation and PGVector HNSW similarity search.
 > - Decision-support supervisor chatbot, prompt construction, or RAG tools.
 > - Executive dashboard analytical charts (sentiment breakdown, trend line charts).
 > - Production authentication/authorization (OAuth2/OIDC).
 
----
-
-## 15. Next Planned Phase: Phase 3
-
-**Phase 3: LangGraph AI Processing Graph & Embeddings Generation**
-- Connect FastAPI AI service with Spring Boot queue/trigger.
-- Implement stateful LangGraph processing pipeline (data cleansing, sentiment/emotion classification, urgency score, embedding vector).
-- Store embeddings in PostgreSQL `feedback_embeddings` table with pgvector cosine similarity indexing.
-- Verify end-to-end classification and embeddings against ingested feedback records.
+Phase 3 analysis results and Phase 4 embeddings are persisted alongside the original feedback records. Search uses current analysis-version embeddings with PostgreSQL/PGVector cosine similarity.

@@ -57,7 +57,11 @@ Open `/analysis` (also available from the main navigation) to run AI analysis fo
 
 The UI calls Spring Boot endpoints under `/api/v1/analysis`; Spring Boot invokes the FastAPI service for analysis runs. The Gemini API key and model configuration belong to the AI service and are not exposed to the browser.
 
-## 6. Testing
+## 6. Semantic Search
+
+Open `/semantic-search` from the main navigation to search analyzed feedback by meaning. Results show similarity, feedback text, and current analysis labels. Expand the embedding section to generate missing embeddings for a batch of analyzed feedback.
+
+## 7. Testing
 
 ```powershell
 # Run unit tests
@@ -66,7 +70,7 @@ npm test -- --watch=false
 
 ---
 
-## 7. Production Build
+## 8. Production Build
 
 ```powershell
 # Build optimized production bundle

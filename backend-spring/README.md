@@ -77,3 +77,16 @@ Spring proxies analysis requests to the FastAPI service configured by `AI_SERVIC
 | `GET` | `/api/v1/analysis/batches/{batchId}` | List current persisted analyses for a batch |
 
 Analysis run requests return `502 Bad Gateway` when the AI service is unavailable. A missing upstream feedback record returns `404`.
+
+## 6. Embedding and Semantic Search Endpoints
+
+The AI service generates 768-dimensional Gemini embeddings for feedback with current analysis, persisting versioned vectors to `feedback_embeddings`. Spring proxies generation and semantic search requests; search results include current analysis metadata and a cosine similarity score.
+
+| Method | Endpoint | Purpose |
+|--------|----------|---------|
+| `POST` | `/api/v1/embeddings/feedback/{feedbackId}` | Generate and persist a feedback embedding |
+| `GET` | `/api/v1/embeddings/feedback/{feedbackId}` | Retrieve current embedding metadata |
+| `POST` | `/api/v1/embeddings/batches/{batchId}?limit={count}` | Generate embeddings for analyzed feedback not yet embedded for its current analysis |
+| `POST` | `/api/v1/semantic-search` | Semantic search; JSON body: `{"query":"duplicate card charge","limit":10}` |
+
+Flyway migration V3 fixes the vector dimension, links each embedding to the analysis version it represents, and adds a cosine HNSW index for current embeddings.

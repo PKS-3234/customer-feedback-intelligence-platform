@@ -3,6 +3,11 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { BatchAnalysisSummary, FeedbackAnalysis } from '../models/analysis.model';
+import {
+  BatchEmbeddingSummary,
+  SemanticSearchResult,
+  StoredEmbedding
+} from '../models/embedding.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +46,39 @@ export class AnalysisService {
   getBatchAnalysis(batchId: string): Observable<FeedbackAnalysis[]> {
     return this.http.get<FeedbackAnalysis[]>(
       `${this.baseUrl}/batches/${encodeURIComponent(batchId)}`
+    );
+  }
+
+  embedFeedback(feedbackId: string): Observable<StoredEmbedding> {
+    return this.http.post<StoredEmbedding>(
+      `${environment.apiBaseUrl}/embeddings/feedback/${encodeURIComponent(feedbackId)}`,
+      null
+    );
+  }
+
+  getFeedbackEmbedding(feedbackId: string): Observable<StoredEmbedding> {
+    return this.http.get<StoredEmbedding>(
+      `${environment.apiBaseUrl}/embeddings/feedback/${encodeURIComponent(feedbackId)}`
+    );
+  }
+
+  embedBatch(batchId: string, limit?: number): Observable<BatchEmbeddingSummary> {
+    let params = new HttpParams();
+    if (limit !== undefined) {
+      params = params.set('limit', limit);
+    }
+
+    return this.http.post<BatchEmbeddingSummary>(
+      `${environment.apiBaseUrl}/embeddings/batches/${encodeURIComponent(batchId)}`,
+      null,
+      { params }
+    );
+  }
+
+  semanticSearch(query: string, limit = 10): Observable<SemanticSearchResult[]> {
+    return this.http.post<SemanticSearchResult[]>(
+      `${environment.apiBaseUrl}/semantic-search`,
+      { query, limit }
     );
   }
 }

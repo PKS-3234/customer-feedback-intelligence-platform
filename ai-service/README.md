@@ -49,9 +49,18 @@ pip install -r requirements.txt
 
 ---
 
-## 5. Endpoints in Phase 1
+## 5. Endpoints
 
 - `GET /health`: General health check endpoint.
 - `GET /internal/v1/health`: Blueprint-specified internal health check endpoint.
 - `GET /docs`: Swagger OpenAPI documentation.
 - `GET /redoc`: ReDoc API documentation.
+
+Analysis endpoints are available under `/api/v1` and `/internal/v1`. Embedding and search endpoints include:
+
+- `POST /api/v1/embeddings/feedback/{feedbackId}`: Generate and persist an embedding for feedback with a current analysis.
+- `GET /api/v1/embeddings/feedback/{feedbackId}`: Retrieve current embedding metadata.
+- `POST /api/v1/embeddings/batches/{batchId}?limit={count}`: Generate embeddings for analyzed feedback in a batch that does not have a current embedding for its current analysis.
+- `POST /api/v1/semantic-search`: Generate a query embedding and search stored feedback by PGVector cosine similarity. Request JSON: `{"query":"duplicate card charge","limit":10}`.
+
+Embedding documents include the raw feedback and its current structured analysis. Gemini `gemini-embedding-001` vectors use 768 dimensions and `RETRIEVAL_DOCUMENT` / `RETRIEVAL_QUERY` task types. Configure `EMBEDDING_PROVIDER`, `GEMINI_EMBEDDING_MODEL`, and `EMBEDDING_DIMENSIONS` in the environment. The embeddings table and cosine HNSW index are applied by the Spring Boot Flyway migration.

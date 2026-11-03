@@ -160,6 +160,190 @@ def get_latest_feedback_analysis(feedback_id: str) -> Optional[Dict[str, Any]]:
             return cur.fetchone()
 
 
+def get_feedback_with_current_analysis(
+    feedback_id: str,
+) -> Optional[Dict[str, Any]]:
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT feedback.feedback_id, feedback.batch_id, feedback.feedback_text,
+                       analysis.analysis_id,
+                       analysis.sentiment, analysis.category, analysis.theme,
+                       analysis.emotion, analysis.priority,
+                       analysis.assigned_department, analysis.short_summary
+                FROM feedback
+                JOIN feedback_analysis analysis
+                  ON analysis.feedback_id = feedback.feedback_id
+                 AND analysis.is_current = true
+                WHERE feedback.feedback_id = %s
+                ORDER BY analysis.analyzed_at DESC
+                LIMIT 1
+                """,
+                (feedback_id,),
+            )
+            return cur.fetchone()
+
+
+def get_pending_embedding_records(
+    batch_id: str,
+    model_name: str,
+    limit: Optional[int] = None,
+) -> List[Dict[str, Any]]:
+    query = """
+        SELECT feedback.feedback_id, feedback.batch_id, feedback.feedback_text,
+               analysis.analysis_id,
+               analysis.sentiment, analysis.category, analysis.theme,
+               analysis.emotion, analysis.priority,
+               analysis.assigned_department, analysis.short_summary
+        FROM feedback
+        JOIN feedback_analysis analysis
+          ON analysis.feedback_id = feedback.feedback_id
+         AND analysis.is_current = true
+        WHERE feedback.batch_id = %s
+          AND NOT EXISTS (
+              SELECT 1
+              FROM feedback_embeddings embedding
+              WHERE embedding.feedback_id = feedback.feedback_id
+                AND embedding.is_current = true
+                AND embedding.embedding_model = %s
+                AND embedding.analysis_id = analysis.analysis_id
+          )
+        ORDER BY feedback.created_at ASC
+    """
+    params: List[Any] = [batch_id, model_name]
+    if limit is not None:
+        query += " LIMIT %s"
+        params.append(limit)
+
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(query, tuple(params))
+            return cur.fetchall()
+
+
+def save_feedback_embedding(
+    feedback_id: str,
+    analysis_id: str,
+    embedding: List[float],
+    model_name: str,
+) -> Dict[str, Any]:
+    if not embedding:
+        raise ValueError("Embedding vector must not be empty.")
+    vector_literal = "[" + ",".join(repr(float(value)) for value in embedding) + "]"
+
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                UPDATE feedback_embeddings
+                SET is_current = false
+                WHERE feedback_id = %s AND is_current = true
+                """,
+                (feedback_id,),
+            )
+            cur.execute(
+                """
+                INSERT INTO feedback_embeddings (
+                    feedback_id, analysis_id, embedding, embedding_model,
+                    embedding_dimension, is_current
+                ) VALUES (%s, %s, %s::vector, %s, %s, true)
+                RETURNING embedding_id, feedback_id, embedding_model,
+                          embedding_dimension, is_current, created_at
+                """,
+                (feedback_id, analysis_id, vector_literal, model_name, len(embedding)),
+            )
+            return cur.fetchone()
+
+
+def get_current_feedback_embedding(
+    feedback_id: str,
+) -> Optional[Dict[str, Any]]:
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT embedding_id, feedback_id, embedding_model,
+                       embedding_dimension, is_current, created_at
+                FROM feedback_embeddings
+                WHERE feedback_id = %s AND is_current = true
+                  AND EXISTS (
+                      SELECT 1
+                      FROM feedback_analysis analysis
+                      WHERE analysis.analysis_id = feedback_embeddings.analysis_id
+                        AND analysis.is_current = true
+                  )
+                ORDER BY created_at DESC
+                LIMIT 1
+                """,
+                (feedback_id,),
+            )
+            return cur.fetchone()
+
+
+def search_feedback_by_embedding(
+    embedding: List[float],
+    limit: int,
+    model_name: str,
+) -> List[Dict[str, Any]]:
+    vector_literal = "[" + ",".join(repr(float(value)) for value in embedding) + "]"
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT feedback.feedback_id, feedback.batch_id,
+                       feedback.feedback_text, analysis.sentiment,
+                       analysis.category, analysis.theme, analysis.emotion,
+                       analysis.priority, analysis.short_summary,
+                       GREATEST(0.0, LEAST(
+                           1.0, 1.0 - (embedding.embedding <=> %s::vector)
+                       )) AS similarity
+                FROM feedback_embeddings embedding
+                JOIN feedback ON feedback.feedback_id = embedding.feedback_id
+                JOIN feedback_analysis analysis
+                  ON analysis.feedback_id = feedback.feedback_id
+                 AND analysis.is_current = true
+                 AND embedding.analysis_id = analysis.analysis_id
+                WHERE embedding.is_current = true
+                  AND embedding.embedding_model = %s
+                ORDER BY embedding.embedding <=> %s::vector
+                LIMIT %s
+                """,
+                (vector_literal, model_name, vector_literal, limit),
+            )
+            return cur.fetchall()
+
+
+def record_embedding_error(
+    batch_id: str,
+    feedback_id: Optional[str],
+    error_code: str,
+    error_message: str,
+    raw_row: Optional[Dict[str, Any]] = None,
+) -> None:
+    import json
+
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                INSERT INTO processing_errors (
+                    batch_id, feedback_id, processing_stage, error_code,
+                    error_message, original_row, created_at
+                ) VALUES (
+                    %s, %s, 'EMBEDDING_GENERATION', %s, %s, %s, CURRENT_TIMESTAMP
+                )
+                """,
+                (
+                    batch_id,
+                    feedback_id,
+                    error_code,
+                    error_message,
+                    json.dumps(raw_row, default=str) if raw_row else None,
+                ),
+            )
+
+
 def record_analysis_error(
     batch_id: str,
     feedback_id: Optional[str],

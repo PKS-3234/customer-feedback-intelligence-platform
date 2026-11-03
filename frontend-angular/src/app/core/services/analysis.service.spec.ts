@@ -65,4 +65,29 @@ describe('AnalysisService', () => {
       createdAt: '2026-11-03T10:00:00Z'
     }]);
   });
+
+  it('should request semantic search with a query and result limit', () => {
+    service.semanticSearch('card charged twice', 5).subscribe();
+
+    const request = httpMock.expectOne(`${environment.apiBaseUrl}/semantic-search`);
+    expect(request.request.method).toBe('POST');
+    expect(request.request.body).toEqual({ query: 'card charged twice', limit: 5 });
+    request.flush([]);
+  });
+
+  it('should trigger batch embedding generation', () => {
+    service.embedBatch('batch-123', 3).subscribe();
+
+    const request = httpMock.expectOne(
+      `${environment.apiBaseUrl}/embeddings/batches/batch-123?limit=3`
+    );
+    expect(request.request.method).toBe('POST');
+    request.flush({
+      batchId: 'batch-123',
+      processed: 3,
+      successful: 3,
+      failed: 0,
+      durationSeconds: 1
+    });
+  });
 });
