@@ -1,7 +1,7 @@
 # Customer Feedback Intelligence Platform
 
-> **Agentic AI Customer Feedback Decision-Support Platform**  
-> An enterprise-grade, evidence-backed platform that converts high-volume customer comments into structured, traceable business insights. Built using deterministic workflows for ingestion & processing, and agentic tool selection for analytical exploration.
+> **Customer Feedback Intelligence Platform**
+> An evidence-backed platform that converts customer comments into structured insights through deterministic ingestion and AI analysis, semantic retrieval, and bounded multi-agent question answering.
 
 ---
 
@@ -11,12 +11,13 @@ Organizations receive feedback across diverse channels (reviews, surveys, suppor
 
 The **Customer Feedback Intelligence Platform** provides:
 - **Canonical Ingestion & Deduplication**: High-fidelity CSV intake, row validation, and immutable raw persistence.
-- **Controlled AI Processing**: Deterministic LangGraph workflows ensuring schema-validated feedback classification, emotion detection, urgency scoring, and vector embeddings.
+- **Controlled AI Processing**: Gemini-based feedback classification, emotion detection, urgency scoring, summaries, and embeddings persisted with the source records.
 - **Semantic & Keyword Exploration**: Hybrid retrieval over PostgreSQL and PGVector to trace issues back to source comments.
-- **Conversational Decision-Support Agent**: A supervisor agent that calls deterministic SQL tools and PGVector retrieval tools to answer questions with verified numbers and citations.
+- **Conversational Decision-Support Agents**: A deterministic supervisor routes questions to fixed analytics, retrieval, and data-quality agents; a reporting agent returns evidence-grounded answers.
+- **Executive Dashboard**: Live relational metrics, six distribution charts, vector-search readiness, and agent configuration status.
 
 > [!NOTE]
-> **Implementation Status**: Phases 1-4 and the bounded Phase 5 multi-agent Copilot are implemented. LangGraph, agent memory and loops, autonomous actions, dashboards, and production authentication are not included.
+> **Implementation Status**: Phases 1-6 are implemented. LangGraph, agent memory and loops, autonomous actions, authentication, and dashboard persistence are not included.
 
 ---
 
@@ -27,27 +28,27 @@ The platform follows a strict separation of concerns:
 ```
 +---------------------------------------------------------------------------------+
 |                                 Angular 21 UI                                   |
-|       (Executive Dashboard, Processing Monitor, Feedback Explorer, Agent Chat)  |
+|    (Executive Dashboard, Processing Monitor, Analysis, Semantic Search, Copilot) |
 +---------------------------------------------------------------------------------+
                                       |  REST / JSON
                                       v
 +---------------------------------------------------------------------------------+
 |                       Spring Boot 3.3 Backend (Java 21)                         |
-|   (Batch Ingestion, Validation, Relational Persistence, Business APIs, Security) |
+|    (Batch Ingestion, Relational APIs, Dashboard Metrics, AI-Service Proxies)     |
 +---------------------------------------------------------------------------------+
                                       |  REST / JSON
                                       v
 +---------------------------------------------------------------------------------+
 |                       FastAPI AI Service (Python 3.12)                          |
-|    (LangGraph Processing Graph, PGVector Search, Supervisor Analytics Agent)    |
+|        (Gemini Analysis, Embeddings, PGVector Search, Bounded Agent Workflow)    |
 +---------------------------------------------------------------------------------+
                                       |
          +----------------------------+----------------------------+
          |                                                         |
          v                                                         v
 +----------------------------------+             +----------------------------------+
-|      PostgreSQL 16 + PGVector    |             |  Real LLM / Embedding Provider   |
-| (Relational Data, Vector Storage)|             |     (Azure OpenAI / OpenAI)      |
+|      PostgreSQL 16 + PGVector    |             |          Gemini API              |
+| (Relational Data, Vector Storage)|             |  Text Analysis + Embeddings     |
 +----------------------------------+             +----------------------------------+
 ```
 
@@ -55,11 +56,11 @@ The platform follows a strict separation of concerns:
 
 | Layer | Primary Responsibilities | Prohibited Boundaries |
 |---|---|---|
-| **Frontend (Angular)** | User experience, reactive filters, column mapping UI, chat interface | Direct database access, prompt construction, API keys, AI execution |
-| **Business Backend (Spring Boot)** | File validation, batch management, raw persistence, query endpoints, DTO contracts | Free-form LLM prompts, LangGraph state execution |
-| **AI Service (FastAPI)** | Deterministic LangGraph classification, embeddings, supervisor agent, analytical tools | Direct UI management, file upload multipart ownership |
+| **Frontend (Angular)** | Dashboard, ingestion screens, analysis, semantic search, Copilot | Direct database access, prompt construction, API keys, AI execution |
+| **Business Backend (Spring Boot)** | File validation, batch management, read-only dashboard metrics, query endpoints, DTO contracts | Free-form LLM prompts, agent workflow execution |
+| **AI Service (FastAPI)** | Gemini analysis and embeddings, PGVector retrieval, bounded supervisor and agents | Direct UI management, file upload multipart ownership |
 | **Database (PostgreSQL + PGVector)** | Relational source of truth, vector indexing, audit trails, metrics queries | Application business logic, unconstrained writes |
-| **Model Provider (Future)** | Semantic text representation, zero-shot taxonomy extraction | Direct database access, authoritative mathematical calculations |
+| **Model Provider (Gemini)** | Feedback analysis, reporting generation, and embedding vectors | Direct database access, authoritative mathematical calculations |
 
 ---
 
@@ -363,9 +364,10 @@ The AI Service will start on port `8000`.
 | **FastAPI Root** | `8000` | `http://localhost:8000/health` | Top-level service health check |
 | **FastAPI Internal** | `8000` | `http://localhost:8000/internal/v1/health` | Blueprint-specified internal health check |
 | **FastAPI Docs** | `8000` | `http://localhost:8000/docs` | FastAPI Swagger API documentation |
-| **Angular Home** | `4200` | `http://localhost:4200` | Frontend landing page & operations launcher |
+| **Angular Dashboard** | `4200` | `http://localhost:4200/dashboard` | Live executive KPIs, chart distributions, and agent readiness |
 | **Angular Upload** | `4200` | `http://localhost:4200/data-operations/upload` | Drag-and-drop CSV validation & ingestion |
 | **Angular Monitor** | `4200` | `http://localhost:4200/data-operations/batches` | Batch processing status monitor & history |
+| **Angular Copilot** | `4200` | `http://localhost:4200/copilot` | Evidence-grounded question answering |
 | **PostgreSQL** | `5432` | `localhost:5432/feedback_intel` | Tested via `pg_isready` healthcheck |
 
 ---
@@ -431,9 +433,60 @@ To inspect the database using pgAdmin or any PostgreSQL GUI client (e.g. DBeaver
 
 > [!IMPORTANT]
 > The following capabilities are not included in the current implementation:
-> - LangGraph deterministic processing graphs or LangChain orchestration.
-> - Decision-support supervisor chatbot, prompt construction, or RAG tools.
-> - Executive dashboard analytical charts (sentiment breakdown, trend line charts).
+> - LangGraph, LangChain, CrewAI, AutoGen, agent memory, loops, or autonomous actions.
 > - Production authentication/authorization (OAuth2/OIDC).
 
 Phase 3 analysis results and Phase 4 embeddings are persisted alongside the original feedback records. Search uses current analysis-version embeddings with PostgreSQL/PGVector cosine similarity.
+
+---
+
+## Phase 6: Executive Dashboard and Demo Readiness
+
+The default `/dashboard` route presents read-only metrics from existing database tables. Spring Boot serves the metrics and six chart datasets from the same API response; it does not duplicate AI processing or write dashboard data.
+
+| Dashboard content | Source |
+|---|---|
+| Feedback, current analyses, and current embeddings | `feedback`, current `feedback_analysis`, `feedback_embeddings` linked to the current analysis |
+| Positive/negative percentages and high-priority count | Current analysis sentiment and priority |
+| Current batches and processing errors | `ingestion_batches`, `processing_errors` |
+| Sentiment, category, theme, and priority charts | Current `feedback_analysis` |
+| Channel and product charts | `feedback` |
+| Embedding model, vector dimension, PGVector readiness | Current embedding metadata and PostgreSQL extension registry |
+| Agent availability and purpose | Registered Phase 5 agent workflow; no execution history is persisted |
+
+Dashboard endpoints:
+
+- `GET /api/v1/dashboard`: executive metrics, chart distributions, and semantic-search summary.
+- `GET /api/v1/dashboard/agents`: the five configured agent purposes and availability. `lastExecution` is `null` because the current workflow does not persist execution timestamps.
+
+### Architecture Overview
+
+```text
+Angular 21
+  ├─ /dashboard: live presentation and charting
+  ├─ /analysis, /semantic-search, /copilot
+  └─ REST → Spring Boot
+       ├─ dashboard metrics: read-only SQL over existing tables
+       ├─ ingestion and retrieval APIs
+       └─ AI workflow proxies → FastAPI
+            ├─ Gemini analysis and embedding providers
+            ├─ PGVector semantic retrieval
+            └─ Supervisor → Analytics / Retrieval / Data Quality → Reporting
+                 └─ Gemini grounded response
+PostgreSQL + PGVector remains the system of record.
+```
+
+### Mentor Demo Flow
+
+1. Open `http://localhost:4200/dashboard`; review the eight KPI cards and six live distribution charts.
+2. Explain that percentages use current analyzed records and vector coverage only counts embeddings linked to the current analysis version.
+3. Review Semantic Search status, model, and vector dimension; open `/semantic-search` for retrieval.
+4. Review the five configured agents and clarify that last-execution time is not tracked.
+5. Select **Ask Copilot** and try “What are customers unhappy about?” or “What are the highest-priority themes?”; inspect the answer, routed agents, and cited evidence.
+6. Show Upload and Monitor navigation to demonstrate the data path that feeds the dashboard.
+
+### Dashboard Screenshots
+
+![Executive dashboard showing live platform KPIs and analytics](docs/screenshots/executive-dashboard.png)
+
+The screenshot shows the local database contents at capture time. Chart panels correctly show an empty state when their current data group has no records.

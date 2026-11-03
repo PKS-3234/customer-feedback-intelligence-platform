@@ -1,19 +1,20 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 import { CsvUploadComponent } from './pages/data-operations/upload/csv-upload.component';
 import { BatchListComponent } from './pages/data-operations/batches/batch-list.component';
 import { BatchDetailComponent } from './pages/data-operations/batches/batch-detail.component';
 import { AnalysisComponent } from './pages/analysis/analysis.component';
 import { SemanticSearchComponent } from './pages/semantic-search/semantic-search.component';
 import { CopilotComponent } from './pages/copilot/copilot.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'data-operations/upload', component: CsvUploadComponent },
   { path: 'data-operations/batches', component: BatchListComponent },
   { path: 'data-operations/batches/:batchId', component: BatchDetailComponent },
   { path: 'analysis', component: AnalysisComponent },
   { path: 'semantic-search', component: SemanticSearchComponent },
   { path: 'copilot', component: CopilotComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'dashboard' }
 ];

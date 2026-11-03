@@ -1,0 +1,153 @@
+<section class="dashboard-page">
+  <header class="dashboard-header">
+    <div>
+      <p class="eyebrow">EXECUTIVE OVERVIEW</p>
+      <h1>Customer Feedback Intelligence</h1>
+      <p class="subtitle">A live view of feedback, AI analysis, semantic search, and agent readiness.</p>
+    </div>
+    <button class="refresh-button" type="button" [disabled]="isLoading" (click)="refresh()">
+      {{ isLoading ? 'Refreshing...' : 'Refresh data' }}
+    </button>
+  </header>
+
+  <div class="alert" role="alert" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <div class="loading-state" *ngIf="isLoading && !metrics" aria-live="polite">Loading live dashboard data...</div>
+
+  <ng-container *ngIf="metrics as data">
+    <section class="metric-grid" aria-label="Key platform metrics">
+      <article class="metric-card accent-blue">
+        <span class="metric-label">Total Feedback Records</span>
+        <strong>{{ data.totalFeedbackRecords | number }}</strong>
+        <span class="metric-note">Stored feedback records</span>
+      </article>
+      <article class="metric-card accent-violet">
+        <span class="metric-label">Total Analyzed Records</span>
+        <strong>{{ data.totalAnalyzedRecords | number }}</strong>
+        <span class="metric-note">Current AI analyses</span>
+      </article>
+      <article class="metric-card accent-cyan">
+        <span class="metric-label">Total Embedded Records</span>
+        <strong>{{ data.totalEmbeddedRecords | number }}</strong>
+        <span class="metric-note">Current analysis vectors</span>
+      </article>
+      <article class="metric-card accent-green">
+        <span class="metric-label">Positive Feedback</span>
+        <strong>{{ data.positiveFeedbackPercent | number:'1.1-1' }}%</strong>
+        <span class="metric-note">Of analyzed feedback</span>
+      </article>
+      <article class="metric-card accent-rose">
+        <span class="metric-label">Negative Feedback</span>
+        <strong>{{ data.negativeFeedbackPercent | number:'1.1-1' }}%</strong>
+        <span class="metric-note">Of analyzed feedback</span>
+      </article>
+      <article class="metric-card accent-amber">
+        <span class="metric-label">High Priority Feedback</span>
+        <strong>{{ data.highPriorityFeedbackCount | number }}</strong>
+        <span class="metric-note">Current high-priority analyses</span>
+      </article>
+      <article class="metric-card accent-indigo">
+        <span class="metric-label">Current Batches</span>
+        <strong>{{ data.currentBatches | number }}</strong>
+        <span class="metric-note">In active processing states</span>
+      </article>
+      <article class="metric-card accent-slate">
+        <span class="metric-label">Processing Errors</span>
+        <strong>{{ data.processingErrors | number }}</strong>
+        <span class="metric-note">{{ data.unresolvedProcessingErrors | number }} unresolved</span>
+      </article>
+    </section>
+
+    <section class="section-block" aria-label="Feedback visual analytics">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">REAL-TIME DATA</p>
+          <h2>Feedback Analytics</h2>
+        </div>
+        <span class="section-caption">Current analysis and stored feedback</span>
+      </div>
+      <div class="chart-grid">
+        <article class="chart-card" *ngFor="let chart of charts">
+          <div class="chart-heading">
+            <h3>{{ chart.title }}</h3>
+            <span>{{ chart.description }}</span>
+          </div>
+          <div class="chart-rows" *ngIf="chart.data.length; else noChartData">
+            <div class="chart-row" *ngFor="let point of chart.data">
+              <span class="chart-label" [title]="point.label">{{ point.label }}</span>
+              <span class="bar-track" aria-hidden="true">
+                <span class="bar-fill" [style.width.%]="barWidth(point.count, chart.data)"></span>
+              </span>
+              <strong class="chart-value">{{ point.count | number }}</strong>
+            </div>
+          </div>
+          <ng-template #noChartData>
+            <p class="chart-empty">No data available yet.</p>
+          </ng-template>
+        </article>
+      </div>
+    </section>
+
+    <section class="insight-grid">
+      <article class="panel semantic-panel">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">VECTOR RETRIEVAL</p>
+            <h2>Semantic Search</h2>
+          </div>
+          <span class="status-pill" [class.status-unavailable]="data.semanticSearch.status !== 'Ready'">
+            {{ data.semanticSearch.status }}
+          </span>
+        </div>
+        <p class="panel-copy">{{ data.semanticSearch.statusMessage }}</p>
+        <div class="semantic-stats">
+          <div><span>Total embeddings</span><strong>{{ data.semanticSearch.totalEmbeddings | number }}</strong></div>
+          <div><span>Embedding model</span>
+            <strong *ngIf="data.semanticSearch.models.length; else noModel">
+              {{ data.semanticSearch.models[0].model }}
+              <small *ngIf="data.semanticSearch.models.length > 1">+{{ data.semanticSearch.models.length - 1 }} more</small>
+            </strong>
+            <ng-template #noModel><strong>Not available</strong></ng-template>
+          </div>
+          <div><span>Vector dimension</span><strong>{{ data.semanticSearch.vectorDimension ?? 'Not available' }}</strong></div>
+        </div>
+        <a class="text-link" routerLink="/semantic-search">Open semantic search <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="panel copilot-panel">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">EVIDENCE-GROUNDED Q&amp;A</p>
+            <h2>Copilot Highlights</h2>
+          </div>
+        </div>
+        <ul class="question-list">
+          <li *ngFor="let question of exampleQuestions"><span aria-hidden="true">“</span>{{ question }}</li>
+        </ul>
+        <a class="primary-link" routerLink="/copilot">Ask Copilot <span aria-hidden="true">→</span></a>
+      </article>
+    </section>
+
+    <section class="section-block agent-section" aria-label="AI agent status">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">BOUNDED WORKFLOW</p>
+          <h2>Agent Status</h2>
+        </div>
+        <span class="section-caption">Execution timestamps are not persisted</span>
+      </div>
+      <div class="agent-grid">
+        <article class="agent-card" *ngFor="let agent of agents">
+          <div class="agent-heading">
+            <h3>{{ agent.agent }}</h3>
+            <span class="status-pill">{{ agent.availability }}</span>
+          </div>
+          <p>{{ agent.purpose }}</p>
+          <div class="agent-execution">
+            <span>Last execution</span>
+            <strong>{{ agent.lastExecution ? (agent.lastExecution | date:'medium') : 'Not tracked' }}</strong>
+          </div>
+        </article>
+      </div>
+    </section>
+  </ng-container>
+</section>

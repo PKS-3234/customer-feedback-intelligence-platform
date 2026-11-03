@@ -30,6 +30,8 @@
   .nav-links {
     display: flex;
     gap: 1.5rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
 
     .nav-link {
       text-decoration: none;
@@ -37,6 +39,7 @@
       font-size: 0.95rem;
       font-weight: 500;
       padding: 0.35rem 0.65rem;
+      white-space: nowrap;
       border-radius: 0.375rem;
       transition: all 0.2s ease;
 
@@ -55,4 +58,17 @@
 
 .app-main-content {
   min-height: calc(100vh - 60px);
+}
+
+@media (max-width: 760px) {
+  .app-navbar .nav-container {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .app-navbar .nav-links {
+    width: 100%;
+    gap: 0.4rem;
+  }
 }

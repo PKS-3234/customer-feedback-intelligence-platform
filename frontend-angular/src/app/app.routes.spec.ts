@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 import { routes } from './app.routes';
 import { BatchService } from './core/services/batch.service';
 import { AnalysisService } from './core/services/analysis.service';
+import { DashboardService } from './core/services/dashboard.service';
 
 describe('App Routing', () => {
   let router: Router;
@@ -25,6 +26,10 @@ describe('App Routing', () => {
     })),
     getBatchAnalysis: vi.fn().mockReturnValue(of([])),
     analyzeFeedback: vi.fn().mockReturnValue(of({}))
+  };
+  const mockDashboardService = {
+    getMetrics: vi.fn().mockReturnValue(of({})),
+    getAgentStatuses: vi.fn().mockReturnValue(of([]))
   };
 
   beforeEach(async () => {
@@ -67,7 +72,8 @@ describe('App Routing', () => {
       providers: [
         provideRouter(routes),
         { provide: BatchService, useValue: mockBatchService },
-        { provide: AnalysisService, useValue: mockAnalysisService }
+        { provide: AnalysisService, useValue: mockAnalysisService },
+        { provide: DashboardService, useValue: mockDashboardService }
       ]
     }).compileComponents();
 
@@ -76,9 +82,14 @@ describe('App Routing', () => {
     router.initialNavigation();
   });
 
-  it('should navigate to empty path as Home', async () => {
+  it('should redirect the empty path to the executive dashboard', async () => {
     await router.navigate(['']);
-    expect(location.path()).toBe('');
+    expect(location.path()).toBe('/dashboard');
+  });
+
+  it('should navigate to /dashboard', async () => {
+    await router.navigate(['/dashboard']);
+    expect(location.path()).toBe('/dashboard');
   });
 
   it('should navigate to /data-operations/upload', async () => {
@@ -108,6 +119,6 @@ describe('App Routing', () => {
 
   it('should redirect unknown routes to Home', async () => {
     await router.navigate(['/non-existent-route-xyz']);
-    expect(location.path()).toBe('');
+    expect(location.path()).toBe('/dashboard');
   });
 });

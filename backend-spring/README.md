@@ -1,6 +1,6 @@
 # Customer Feedback Intelligence Platform - Spring Boot Backend
 
-The business backend service for the Customer Feedback Intelligence Platform, built with Java 21 and Spring Boot 3.3.5.
+The business backend service for the Customer Feedback Intelligence Platform, built with Java 21 and Spring Boot 3.3.5. It provides ingestion and retrieval APIs, read-only dashboard metrics, and proxies to the FastAPI AI service.
 
 > The backend includes CSV ingestion and a Spring-to-FastAPI integration for triggering AI analysis and retrieving persisted results.
 
@@ -90,3 +90,14 @@ The AI service generates 768-dimensional Gemini embeddings for feedback with cur
 | `POST` | `/api/v1/semantic-search` | Semantic search; JSON body: `{"query":"duplicate card charge","limit":10}` |
 
 Flyway migration V3 fixes the vector dimension, links each embedding to the analysis version it represents, and adds a cosine HNSW index for current embeddings.
+
+## 7. Executive Dashboard APIs
+
+Dashboard endpoints read from existing PostgreSQL tables; they do not persist dashboard state or invoke AI workflows.
+
+| Method | Endpoint | Purpose |
+|--------|----------|---------|
+| `GET` | `/api/v1/dashboard` | KPI metrics, six chart distributions, and current embedding/search readiness |
+| `GET` | `/api/v1/dashboard/agents` | Configured Phase 5 agents, purpose, and availability |
+
+Analysis percentages use current analysis rows as the denominator. Current embedding counts include only current vectors linked to a current feedback analysis. Agent execution timestamps are not persisted, so `lastExecution` is returned as `null`.
